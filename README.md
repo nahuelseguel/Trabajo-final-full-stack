@@ -28,3 +28,5 @@ A partir de la que precises, al ingresar te van a figurar todos los profesionale
 Va a poder personalizar su perfil publico: Profesion, horarios, rangos de precios, etc.
 Va a poder administrar su agenda, confirmar/cancelar turnos
 Va a poder pagar una cuota mensual para mantener activa su visibilidad y recibir reservas.
+
+Drive con la informacion del proyecto: https://drive.google.com/drive/folders/1LAJrQ0qtphpXeuR9Vbx2C8rZCRjV9lPl

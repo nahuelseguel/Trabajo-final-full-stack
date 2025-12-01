@@ -1,0 +1,111 @@
+body {
+  margin: 0;
+  box-sizing: border-box;
+  background-color: rgb(248, 248, 248);
+}
+
+/*CONTENEDOR DE PANTALA PRINCIPAL*/
+.contenedor-pantalla {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+/*CONTENEDOR DE TODAS LAS CARDS*/
+.contenedor-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 30px;
+}
+
+/*CONTENEDOR DEL BUSCADOR*/
+.contenedor-buscador {
+  margin-top: 20px;
+  width: 60%;
+  height: 60px;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: center;
+  border-radius: 25px;
+  /* border: 1px solid rgb(209, 208, 208); */
+  box-shadow: 0px 1px 5px rgb(212, 212, 212);
+}
+
+/*BUSCADOR*/
+.buscador-profesiones {
+  width: 650px;
+  height: 30px;
+  border-radius: 10px;
+  /* border: 1px solid rgb(209, 208, 208); */
+  box-shadow: 0px 1px 5px rgb(160, 160, 160);
+  background-color: rgb(255, 255, 255);
+  font-weight: bold;
+  padding: 3px 10px;
+  border: none;
+}
+
+/*BOTON BUSCAR*/
+.contenedor-buscador button {
+  width: 100px;
+  height: 37px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0px 1px 3px rgb(255, 255, 255);
+  background-color: rgba(0, 89, 255, 1);
+  color: rgba(255, 255, 255, 1);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/*HOVER DEL BOTON*/
+.contenedor-buscador button:hover {
+  background-color: rgb(99, 152, 252);
+}
+
+.link {
+  text-decoration: none;
+}
+
+.link:visited {
+  color: black;
+}
+
+/*DISEÑO RESPONSIVE*/
+
+/*TABLET*/
+
+@media (max-width: 1000px) {
+  .contenedor-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contenedor-buscador {
+    width: 60vw;
+    height: 0;
+    margin-top: 8%;
+  }
+
+  .contenedor-buscador button {
+    display: none;
+  }
+}
+
+/*CELULAR*/
+
+@media (max-width: 640px) {
+  .contenedor-cards {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .contenedor-buscador button {
+    display: none;
+  }
+
+  .contenedor-buscador {
+    width: 80vw;
+    height: 0;
+    margin-top: 8%;
+  }
+}

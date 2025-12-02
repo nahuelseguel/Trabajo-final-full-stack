@@ -5,6 +5,9 @@ import ForgotPassword from "./Screens/ForgotPassword"
 import SignUp from "./Screens/SignUp"
 import { Route, Routes } from 'react-router-dom'
 import { Turnos } from './components/Turnos'
+import AuthLayout  from '../src/layouts/AuthLayout.jsx';
+import "../src/Style.css";
+
 
 function App() {
 

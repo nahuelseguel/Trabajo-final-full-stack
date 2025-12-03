@@ -17,7 +17,7 @@ function App() {
     <>
       <Routes>
         <Route path="/turnos" element={<Turnos></Turnos>}></Route>
-        <Route path="/clientes" element={<PantallaCliente></PantallaCliente>}></Route>
+        <Route path="/cliente" element={<PantallaCliente></PantallaCliente>}></Route>
         <Route path="/profesion/:profesion" element={<PantallaProfesionales />}></Route>
         <Route element={<AuthLayout />}>
           <Route path="/" element={<Login />} />

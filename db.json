@@ -1,0 +1,64 @@
+{
+  "usuarios": [
+    {
+      "id": "fb73",
+      "nombre": "a",
+      "apellido": "a",
+      "telefono": "1234567890",
+      "email": "aa@gmail.com",
+      "password": "1234abcd",
+      "confirmPassword": "1234abcd",
+      "profesion": "",
+      "rangoPrecio": "",
+      "role": "cliente"
+    },
+    {
+      "id": "1c08",
+      "nombre": "Agustina",
+      "apellido": "Altieri",
+      "telefono": "2983000000",
+      "email": "agus@gmail.com",
+      "password": "1234abcd",
+      "confirmPassword": "1234abcd",
+      "profesion": "Fotografo",
+      "rangoPrecio": "0-499",
+      "role": "profesional"
+    },
+    {
+      "id": "8cce",
+      "nombre": "Vivi",
+      "apellido": "Blasco",
+      "telefono": "2587412589",
+      "email": "vb@gmail.com",
+      "password": "7777aaaa",
+      "confirmPassword": "7777aaaa",
+      "profesion": "",
+      "rangoPrecio": "",
+      "role": "cliente"
+    },
+    {
+      "id": "bcd3",
+      "nombre": "Juan",
+      "apellido": "Perez",
+      "telefono": "1234567890",
+      "email": "jp@gmail.com",
+      "password": "1111aaaa",
+      "confirmPassword": "1111aaaa",
+      "profesion": "",
+      "rangoPrecio": "",
+      "role": "cliente"
+    },
+    {
+      "id": "c881",
+      "nombre": "Rafa",
+      "apellido": "Ruggeri",
+      "telefono": "2365474747",
+      "email": "rr@gmail.com",
+      "password": "7777qqqq",
+      "confirmPassword": "7777qqqq",
+      "profesion": "",
+      "rangoPrecio": "",
+      "role": "cliente"
+    }
+  ]
+}

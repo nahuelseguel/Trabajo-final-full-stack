@@ -92,7 +92,7 @@ const Login = () => {
         if (usuarioLogueado.role === "profesional") {
             navegar("/forgotpassword"); // Ruta de ejemplo para profesional. HAY QUE CAMBIARLAS LUEGO
         } else if (usuarioLogueado.role === "cliente") {
-            navegar("/clientes"); // Ruta de ejemplo para cliente. HAY QUE CAMBIARLAS LUEGO
+            navegar("/cliente"); // Ruta de ejemplo para cliente. HAY QUE CAMBIARLAS LUEGO
         }
     };
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Boton from "../Components/boton/Boton";
-import {PantallaCliente} from "../components/seccionClientes/PantallaCliente";
+import { PantallaCliente } from "../components/seccionClientes/PantallaCliente";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
@@ -69,8 +69,8 @@ const Login = () => {
                 allowOutsideClick: false,
 
                 // Colores personalizados de la alerta
-                confirmButtonColor: 'rgba(0, 89, 255, 1)',  
-                denyButtonColor: '#b0b0b0',                 
+                confirmButtonColor: 'rgba(0, 89, 255, 1)',
+                denyButtonColor: '#b0b0b0',
                 background: '#ffffff',
                 color: '#333',
             });
@@ -87,6 +87,22 @@ const Login = () => {
 
         // guardo el usuario en el localStorage(usuario logueado es el usuario que coincidio con el ingreso)
         localStorage.setItem("usuario", JSON.stringify(usuarioLogueado));
+
+        // Asegura que la selección del boton coincida con el rol del usuario que se está logueando
+        if (usuarioLogueado.role !== role) {
+            // Si el rol no coincide lanza una alerta de SweetAlert2
+            await Swal.fire({
+                title: 'Rol incorrecto',
+                text: 'El rol seleccionado no coincide con tu tipo de cuenta.',
+                icon: 'error',
+                confirmButtonText: 'Entendido',
+                allowOutsideClick: false,
+                confirmButtonColor: 'rgba(0, 89, 255, 1)',
+                background: '#ffffff',
+                color: '#333'
+            });
+            return;
+        }
 
         // Navegación según el rol del usuario sea profesional o cliente
         if (usuarioLogueado.role === "profesional") {

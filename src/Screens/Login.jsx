@@ -90,9 +90,9 @@ const Login = () => {
 
         // Navegación según el rol del usuario sea profesional o cliente
         if (usuarioLogueado.role === "profesional") {
-            navegar("/forgotpassword"); // Ruta de ejemplo para profesional. HAY QUE CAMBIARLAS LUEGO
+            navegar("/panelprofesional"); // Ruta de ejemplo para profesional. HAY QUE CAMBIARLAS LUEGO
         } else if (usuarioLogueado.role === "cliente") {
-            navegar("/cliente"); // Ruta de ejemplo para cliente. HAY QUE CAMBIARLAS LUEGO
+            navegar("/clientes"); // Ruta de ejemplo para cliente. HAY QUE CAMBIARLAS LUEGO
         }
     };
 

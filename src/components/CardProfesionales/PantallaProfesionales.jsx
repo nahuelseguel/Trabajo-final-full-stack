@@ -36,7 +36,7 @@ export const PantallaProfesionales = () => {
   return (
     <div className='contenedor-pantalla-profesionales'>
       <div className='contenedor-volver-atras'>
-        <Link className='link' to="/"> <button className='btn-volver'>← Volver</button></Link>
+        <Link className='link' to="/clientes"> <button className='btn-volver'>← Volver</button></Link>
         <p>Profesionales • {profesion} </p>
       </div>
 

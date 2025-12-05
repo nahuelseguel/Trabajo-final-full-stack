@@ -137,6 +137,7 @@ const Login = () => {
 
                         {/* Botón Cliente */}
                         <Boton
+                        
                             active={role === "cliente"}
                             onClick={() => setRole("cliente")}
                             icono={<img src="./src/assets/person.svg" alt="Icono cliente" className="btn-icon" />}

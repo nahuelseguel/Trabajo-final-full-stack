@@ -29,11 +29,10 @@ const ElementoAgenda = ({ cita }) => {
   return (
     <div className="item-agenda">
       <div className="tiempo-agenda">
-        {cita.hora}
       </div>
       <div className="detalles-agenda">
-        <div className="cliente-agenda">{cita.nombreCliente}</div>
-        <div className="servicio-agenda">{cita.servicio}</div>
+        <div className="cliente-agenda">{cita.nombre} {cita.apellido}</div>
+         {cita.fecha} {cita.horario}
       </div>
       <div className="estado-agenda">
         <span className={`etiqueta-estado ${cita.estado}`}>

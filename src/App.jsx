@@ -3,9 +3,9 @@ import Horarios from "./components/horarios/Horarios";
 import Confirmacion from "./components/confirmacion/Confirmacion";
 import { PantallaCliente } from './components/seccionClientes/PantallaCliente'
 import { PantallaProfesionales } from './components/CardProfesionales/PantallaProfesionales'
-import Login from "./Screens/Login";
-import ForgotPassword from "./Screens/ForgotPassword"
-import SignUp from "./Screens/SignUp"
+import Login from "./components/Login.jsx";
+import ForgotPassword from "./components/ForgotPassword.jsx";
+import SignUp from "./components/SignUp.jsx";
 import { Route, Routes } from 'react-router-dom'
 import { Turnos } from './components/Turnos'
 import AuthLayout from '../src/layouts/AuthLayout.jsx';

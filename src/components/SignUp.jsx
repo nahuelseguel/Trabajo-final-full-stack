@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Boton from "../components/botonRoles/Boton";
+import Boton from "./botonRoles/Boton";
 
 const SignUp = () => {
   // estado para los campos
@@ -204,20 +204,30 @@ const SignUp = () => {
           {/* Profesión u Oficio y Rango de precios (sólo en singUp progesionales) */}
           {role === "profesional" && (
             <>
-              <label className="field-label">Profesión u Oficio</label>
-              <div className="input-wrap">
-                <img src="/src/assets/briefcase.svg" alt="profesion" className="input-icon" />
-                <input
-                  className="input-field"
-                  type="text"
-                  placeholder="Ej: Electricista, Carpintero, Fotógrafo…"
+              <label className="field-label field-label--spaced">Profesión u Oficio</label>
+              <div className="input-wrap select-wrap">
+                <img src="./src/assets/briefcase.svg" alt="profesion" className="input-icon" />
+                <select
+                  className="input-field select-field"
                   name="profesion"
-                  value={form.profesion || ""}
+                  value={form.profesion}
                   onChange={handleChange}
                   required={role === "profesional"}
-                />
+                  aria-label="profesion"
+                >
+                  <option value="">Seleccioná tu profesión</option>
+                  <option value="psicologia">Psicología</option>
+                  <option value="kinesiologia">Kinesiología</option>
+                  <option value="nutricionista">Nutricionista</option>
+                  <option value="dentista">Dentista</option>
+                  <option value="peluqueria">Peluquería</option>
+                  <option value="tatuadores">Tatuadores</option>
+                  <option value="plomeros">Plomeros</option>
+                  <option value="albañiles">Albañiles</option>
+                </select>
               </div>
 
+              {/*Rango de precios */}
               <label className="field-label field-label--spaced">Rango de precio</label>
               <div className="input-wrap select-wrap">
                 <img src="./src/assets/wallet.svg" alt="rango precio" className="input-icon" />

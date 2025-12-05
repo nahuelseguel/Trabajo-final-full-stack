@@ -1,5 +1,4 @@
 import React from 'react';
-import ElementoCancellation from './ElementoCancelacion';
 import ElementoCancelacion from './ElementoCancelacion';
 
 const TarjetaCancelaciones = ({ cancelaciones, onReprogramar }) => {

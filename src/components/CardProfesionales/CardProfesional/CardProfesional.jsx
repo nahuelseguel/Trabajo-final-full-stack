@@ -2,7 +2,7 @@ import React from 'react'
 import "./cardProfesional.css"
 import { Link } from 'react-router-dom'
 
-export const CardProfesional = ({ nombre, precio}) => {
+export const CardProfesional = ({ nombre, precio, id}) => {
     return (
         <div>
             <div className='contenedor-card-profesional'>
@@ -16,7 +16,7 @@ export const CardProfesional = ({ nombre, precio}) => {
                 <p className='rango-precio'>Rango del presupuesto: ${precio}</p>
                 {/*falta enlazar en el link del boton pedir turno la seccion de los turnos disponibles
                 state lleva los datos a la url de to y se recibe con location */}
-                <Link className='link' to="/calendario" state={{nombre, precio}}><button className='btn-turno'>Pedir turno</button></Link>
+                <Link className='link' to="/calendario" state={{nombre, precio, id}}><button className='btn-turno'>Pedir turno</button></Link>
 
 
             </div>

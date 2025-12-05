@@ -9,11 +9,11 @@ const Confirmacion = ({ finalSelection }) => {
 
   return (
     <div className="confirmation-container">
-      <h2>¡Cita Confirmada!</h2>
+      <h2>Cita pendiente</h2>
       <p>Fecha: {finalSelection.date.toLocaleDateString()}</p>
       <p>Hora: {finalSelection.time}</p>
 
-      <button onClick={() => navigate("/")}>
+      <button onClick={() => navigate("/clientes")}>
         Volver
       </button>
     </div>

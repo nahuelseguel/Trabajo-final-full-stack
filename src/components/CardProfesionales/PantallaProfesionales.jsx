@@ -43,7 +43,8 @@ export const PantallaProfesionales = () => {
       <div className='contenedor-card-personas'>
         {filtrados.map((p) => (
           <CardProfesional
-            imagen={p.imagen}
+            id={p.id}
+            imagen={p.imagen}  
             nombre={p.nombre}
             precio={p.rangoPrecio}
           />

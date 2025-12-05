@@ -8,7 +8,7 @@ const Confirmacion = ({ finalSelection }) => {
   if (!finalSelection.date) navigate("/");
 
   return (
-    <div className="confirmation-container">
+    <div className="confirm-container">
       <h2>Cita pendiente</h2>
       <p>Fecha: {finalSelection.date.toLocaleDateString()}</p>
       <p>Hora: {finalSelection.time}</p>

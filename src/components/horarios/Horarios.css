@@ -1,34 +1,28 @@
-/* Contenedor del grid */
 .time-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-  gap: 8px;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 10px;
   padding: 10px;
 }
 
-/* Botón base */
 .time-button {
-  padding: 6px 10px;
-  border-radius: 8px;
+  padding: 8px 14px;
+  border-radius: 12px;
   border: none;
-  font-size: 14px;
+  font-size: 15px;
   background-color: #f0f0f0;
   color: #333;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
 
-/* ----------- SOLO DISPONIBLES (enabled) ----------- */
-/* Verde estilo “turno disponible” del ejemplo */
 .time-button:enabled {
-  background-color: #c8f7c5; /* verde suave */
-  color: #1e7b1e;           /* verde oscuro */
+  background-color: #c8f7c5;
+  color: #1e7b1e;
   font-weight: 600;
-  box-shadow: 0 0 4px rgba(0, 128, 0, 0.25);
+  box-shadow: 0 0 6px rgba(0, 128, 0, 0.25);
 }
 
-/* Hover suave en disponibles */
 .time-button:enabled:hover {
   background-color: #b6f3b1;
 }
-

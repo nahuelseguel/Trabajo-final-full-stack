@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Boton from "../Components/boton/Boton";
+import Boton from "../components/botonRoles/Boton";
 
 const SignUp = () => {
   // estado para los campos

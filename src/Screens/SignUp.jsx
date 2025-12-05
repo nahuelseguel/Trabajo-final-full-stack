@@ -288,7 +288,7 @@ const SignUp = () => {
 
           <p className="helper-text">La contraseña debe tener mínimo 8 caracteres y combinar letras y números.</p>
 
-          {/* Mensajes de estado */}
+          {/* Mensajes de estado: si hay un error muestra el mensaje correspondiente, sino muestra registro exitoso*/}
           {error && <p className="helper-text" style={{ color: "red", marginBottom: 8 }}>{error}</p>}
           {success && <p className="helper-text" style={{ color: "green", marginBottom: 8 }}>Registro exitoso.</p>}
 

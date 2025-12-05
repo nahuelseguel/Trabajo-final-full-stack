@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Boton from "../components/botonRoles/Boton";
+import {PantallaCliente} from "../components/seccionClientes/PantallaCliente";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './CAlendario.css'
+import './calendario.css'
 
 const Calendario = ({ onDateSelect }) => {
   const navigate = useNavigate();

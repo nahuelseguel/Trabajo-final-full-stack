@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { CardProfesional } from './CardProfesional/CardProfesional'
-import personas from "./CardProfesional/personas.json"
 import "./pantallaProfesional.css"
 import { useParams } from "react-router-dom"
 import { Link } from 'react-router-dom'
@@ -13,17 +12,17 @@ export const PantallaProfesionales = () => {
   const { profesion } = useParams();
 
   /*  CODIGO PARA TRAER LOS DATOS DEL SERVER JSON*/
-  // const [personas, setPersonas] = useState([])
+  const [personas, setPersonas] = useState([])
 
-  // let traerUsuarios = async () => {
-  //   const response = await fetch("http://localhost:4000/usuarios");
-  //   const personas = await response.json();
-  //   setPersonas(personas)
-  // }
+  let traerUsuarios = async () => {
+    const response = await fetch("http://localhost:4000/usuarios");
+    const personas = await response.json();
+    setPersonas(personas)
+  }
 
-  // useEffect(() => {
-  //   traerUsuarios()
-  // }, [])
+  useEffect(() => {
+    traerUsuarios()
+  }, [])
 
 
   //creo una constante en donde:
@@ -45,7 +44,7 @@ export const PantallaProfesionales = () => {
           <CardProfesional
             imagen={p.imagen}
             nombre={p.nombre}
-            precio={p.precio}
+            precio={p.rangoPrecio}
           />
         ))}
       </div>

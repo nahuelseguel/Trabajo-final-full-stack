@@ -14,7 +14,7 @@ const Confirmacion = ({ finalSelection }) => {
       <p>Hora: {finalSelection.time}</p>
 
       <button onClick={() => navigate("/")}>
-        Hacer otra reserva
+        Volver
       </button>
     </div>
   );

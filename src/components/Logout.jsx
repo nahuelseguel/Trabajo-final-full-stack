@@ -6,7 +6,7 @@ const Logout = () => {
 
     const handleLogout = () => {
         localStorage.removeItem("usuario"); 
-        navegar("/login");               
+        navegar("/");               
     };
 
     return (

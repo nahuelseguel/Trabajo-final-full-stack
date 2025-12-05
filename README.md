@@ -1,16 +1,61 @@
-# React + Vite
+# Turn Market
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto final del curso de Desarrollo Web Full Stack consiste en la creación de una página web que busca acercar a la población de la ciudad de Tres Arroyos con personas de distintas profesiones u oficios y poder obtener turnos para contratar sus servicios.  
 
-Currently, two official plugins are available:
+## Tecnologías utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React**
+- **JavaScript**
+- **React Router DOM**
+- **JSON Server**
+- **CSS**
+- **SweetAlert2**
 
-## React Compiler
+## Funcionalidades principales
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Inicio de sesión con email y contraseña  
+- Validación del formulario  
+- Diferenciación de roles (cliente / profesional)  
+- Manejo de errores  
+- Redirección de rutas
 
-## Expanding the ESLint configuration
+## Estructura del proyecto
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+/src
+/assets
+/Components
+/Layouts
+App.css
+App.jsx
+main.jsx
+Style.css
+
+## Instalación y uso
+
+1. **Clonar el repositorio**
+   ```bash
+   git clone <https://github.com/nahuelseguel/Trabajo-final-full-stack.git>
+
+2. **Instalar dependencias**
+   ```bash
+   npm install
+
+3. **Instalar JSON Server**
+   ```bash
+   npm install json-server
+
+4. **Iniciar JSON Server**
+   ```bash
+   json-server --watch db.json --port 4000
+
+5. **Instalar SweetAlert2**
+   ```bash
+    npm install sweetalert2
+
+4. **Iniciar la aplicación**
+   ```bash
+   npm run dev
+
+## Link con documentación
+
+https://drive.google.com/drive/folders/1Dfu7xL9wJrHZv0o8RvOYhge72pmWgjeQ?usp=drive_link

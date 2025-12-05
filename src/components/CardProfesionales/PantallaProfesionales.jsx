@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { CardProfesional } from './CardProfesional/CardProfesional'
-import personas from "./CardProfesional/personas.json"
 import "./pantallaProfesional.css"
 import { useParams } from "react-router-dom"
 import { Link } from 'react-router-dom'

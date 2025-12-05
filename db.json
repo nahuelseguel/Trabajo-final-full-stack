@@ -54,11 +54,14 @@
       "apellido": "Ruggeri",
       "telefono": "2365474747",
       "email": "rr@gmail.com",
-      "password": "7777qqqq",
+      "password": "1111aaaa",
       "confirmPassword": "7777qqqq",
       "profesion": "",
       "rangoPrecio": "",
       "role": "cliente"
     }
+  ],
+  
+  "turnos": [
   ]
 }

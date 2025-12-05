@@ -31,7 +31,6 @@ const Horarios = ({ selectedDate, onTimeSelect }) => {
       body: JSON.stringify(turno)
     })
   }
- main
 
   const arrHoras = [];
   for (let h = 8; h <= 20; h++) arrHoras.push(h);

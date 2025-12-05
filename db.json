@@ -20,7 +20,7 @@
       "email": "agus@gmail.com",
       "password": "1234abcd",
       "confirmPassword": "1234abcd",
-      "profesion": "Fotografo",
+      "profesion": "Plomeros",
       "rangoPrecio": "0-499",
       "role": "profesional"
     },
@@ -61,7 +61,16 @@
       "role": "cliente"
     }
   ],
-  
   "turnos": [
+    {
+      "id": "d953",
+      "profesionalId": "1c08",
+      "clienteId": "8cce",
+      "nombre": "Vivi",
+      "apellido": "Blasco",
+      "fecha": "2027-10-27T03:00:00.000Z",
+      "horario": "14:00",
+      "estado": "pendiente"
+    }
   ]
 }

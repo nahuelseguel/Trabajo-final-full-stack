@@ -46,7 +46,7 @@
 }
 
 .time-button:enabled {
-    background-color: #c8f7c5;
+  background-color: #c8f7c5;
   color: #1e7b1e;
   font-weight: 600;
   box-shadow: 0 0 6px rgba(0, 128, 0, 0.25);

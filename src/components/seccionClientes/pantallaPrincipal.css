@@ -116,6 +116,10 @@ li {
   align-items: center;
 }
 
+.btn-logout-responsive {
+  display: none;
+}
+
 /*DISEÑO RESPONSIVE*/
 
 /*TABLET*/
@@ -133,6 +137,14 @@ li {
 
   .contenedor-buscador button {
     display: none;
+  }
+
+  .btn-logout {
+    display: none;
+  }
+
+  .btn-logout-responsive {
+    display: block;
   }
 }
 

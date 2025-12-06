@@ -57,6 +57,10 @@ export const PantallaCliente = () => {
                 <div className="btn-logout" >
                     <Logout />
                 </div>
+
+                <div className="btn-logout-responsive" >
+                    <Logout />
+                </div>
                 <div className='contenedor-buscador'>
                     <input className='buscador-profesiones' onChange={handleChange} placeholder='Buscar una profesion...' type='text'></input>
                     <button>Buscar</button>
@@ -90,8 +94,8 @@ export const PantallaCliente = () => {
                         </ul>
                     ))}
 
-                      <button className='btn-vaciar' onClick={() => setTurnoAceptado([])}>Eliminar notificaciones de turnos aceptados</button>
-                      <button className='btn-vaciar' onClick={() => setTurnosRechazados([])}>Eliminar notificaciones de turnos rechazados</button>
+                      {/* <button className='btn-vaciar' onClick={() => setTurnoAceptado([])}>Eliminar notificaciones de turnos aceptados</button>
+                      <button className='btn-vaciar' onClick={() => setTurnosRechazados([])}>Eliminar notificaciones de turnos rechazados</button> */}
                 </div>
             </div>
         </>

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { CardProfesional } from './CardProfesional/CardProfesional'
-import personas from "./CardProfesional/personas.json"
 import "./pantallaProfesional.css"
 import { useParams } from "react-router-dom"
 import { Link } from 'react-router-dom'
@@ -43,7 +42,8 @@ export const PantallaProfesionales = () => {
       <div className='contenedor-card-personas'>
         {filtrados.map((p) => (
           <CardProfesional
-            imagen={p.imagen}
+            id={p.id}
+            imagen={p.imagen}  
             nombre={p.nombre}
             precio={p.rangoPrecio}
           />

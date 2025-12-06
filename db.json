@@ -16,7 +16,7 @@
       "id": "1c08",
       "nombre": "Agustina",
       "apellido": "Altieri",
-      "telefono": "2983000000",
+      "telefono": "2983001000",
       "email": "agus@gmail.com",
       "password": "1234abcd",
       "confirmPassword": "1234abcd",
@@ -155,6 +155,18 @@
       "profesion": "albañiles",
       "rangoPrecio": "1000-1999",
       "role": "profesional"
+    }
+  ],
+  "turnos": [
+    {
+      "id": "d953",
+      "profesionalId": "1c08",
+      "clienteId": "8cce",
+      "nombre": "Vivi",
+      "apellido": "Blasco",
+      "fecha": "2027-10-27T03:00:00.000Z",
+      "horario": "14:00",
+      "estado": "pendiente"
     }
   ]
 }

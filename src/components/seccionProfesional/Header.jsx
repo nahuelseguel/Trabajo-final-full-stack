@@ -7,7 +7,7 @@ const Header = () => {
       <div className="izquierda-encabezado">
         <span className="logo-app">Turn Market - Perfil profesional</span>
       </div>
-      <div className="derecha-encabezado">
+      <div className="derecha-encabezado" >
         <Logout />
       </div>
     </header>

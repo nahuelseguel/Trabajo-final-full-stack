@@ -72,6 +72,15 @@ body {
   color: black;
 }
 
+/*BOTON CERRAR SESION*/
+.btn-logout {
+  position: absolute;
+  top: 6px; /* separación desde arriba */
+  right: 20px; /* separación desde la derecha */
+  display: flex;
+  align-items: center;
+}
+
 /*DISEÑO RESPONSIVE*/
 
 /*TABLET*/

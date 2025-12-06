@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Card } from "./Card/Card.jsx"
 import profesiones from "./Card/profesiones.json"
 import "../seccionClientes/pantallaPrincipal.css"
+import Logout from '../Logout.jsx'
 
 //el boton buscar no tiene accion 
 
@@ -53,6 +54,9 @@ export const PantallaCliente = () => {
         <>
             <div className='contenedor-pantalla'>
 
+                <div className="btn-logout" >
+                    <Logout />
+                </div>
                 <div className='contenedor-buscador'>
                     <input className='buscador-profesiones' onChange={handleChange} placeholder='Buscar una profesion...' type='text'></input>
                     <button>Buscar</button>

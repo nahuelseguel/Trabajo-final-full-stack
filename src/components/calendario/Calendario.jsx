@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { useNavigate, useLocation } from 'react-router-dom';
-import './CAlendario.css'
+import './calendario.css'
 
 
 const Calendario = ({ onDateSelect }) => {
@@ -13,7 +13,7 @@ const Calendario = ({ onDateSelect }) => {
   const getDaysInMonth = (year, month) => new Date(year, month + 1, 0).getDate();
   const getFirstDayOfMonth = (year, month) => new Date(year, month, 1).getDay();
 
- const handleSelect = (date) => {
+  const handleSelect = (date) => {
     onDateSelect(date);
     navigate("/horarios", { state: { profesionalId } });
   };
@@ -52,22 +52,24 @@ const Calendario = ({ onDateSelect }) => {
   };
 
   return (
-    <div className="calendar-container">
-      <div className="calendar-header">
-        <button onClick={() => setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 1))}>
-          &lt;
-        </button>
+    <div className='contenedor-calendar'>
+      <div className="calendar-container">
+        <div className="calendar-header">
+          <button onClick={() => setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 1))}>
+            &lt;
+          </button>
 
-        <h3>
-          {currentDate.toLocaleDateString("es-ES", { month: "long", year: "numeric" })}
-        </h3>
+          <div>
+            <h3>{currentDate.toLocaleDateString("es-ES", { month: "long", year: "numeric" })}</h3>
+          </div>
 
-        <button onClick={() => setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1))}>
-          &gt;
-        </button>
+          <button onClick={() => setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1))}>
+            &gt;
+          </button>
+        </div>
+        <h3 className='selecciona-dia'>Selecciona un dia</h3>
+        <div className="calendar-days">{renderDays()}</div>
       </div>
-
-      <div className="calendar-days">{renderDays()}</div>
     </div>
   );
 };

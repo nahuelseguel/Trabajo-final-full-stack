@@ -31,7 +31,6 @@ const Horarios = ({ selectedDate, onTimeSelect }) => {
       body: JSON.stringify(turno)
     })
   }
- main
 
   const arrHoras = [];
   for (let h = 8; h <= 20; h++) arrHoras.push(h);
@@ -48,8 +47,10 @@ const Horarios = ({ selectedDate, onTimeSelect }) => {
 
 
   return (
+    <div className='contenedor-horarios'>
     <div className="time-selector-container">
-      <p>Cita para: {selectedDate.toLocaleDateString()}</p>
+      <h3 className='header-mensaje'>Estas pidiendo un turno para el { selectedDate.toLocaleDateString()}</h3>
+            <h3 className='mensaje-seleccionar'>Selecciona un horario</h3>
 
       <div className="time-grid">
         {arrHoras.map((h) => (
@@ -62,6 +63,7 @@ const Horarios = ({ selectedDate, onTimeSelect }) => {
           </button>
         ))}
       </div>
+    </div>
     </div>
   );
 }

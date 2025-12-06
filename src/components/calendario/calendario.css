@@ -1,8 +1,42 @@
+.contenedor-calendar {
+  justify-content: center;
+  display: flex;
+}
+
+.calendar-container {
+  display: flex;
+  flex-direction: column;
+  height: 85vh;
+  width: 90vw;
+  margin-top: 30px;
+  box-shadow: 0px 5px 3px rgb(110, 110, 110);
+  border-radius: 15px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.selecciona-dia {
+  margin-bottom: 20px;
+}
+
 .calendar-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 30px;
   align-items: center;
-  margin-bottom: 24px;
+  font-size: 21px;
+  margin-bottom: 20px;
+  background-color: rgba(0, 89, 255, 1);
+  color: white;
+  padding: 6px;
+
+}
+
+.calendar-header button {
+  width: 30px;
+  height: 20px;
+  border-radius: 20px;
+  border: none;
 }
 
 .calendar-nav-button {
@@ -52,6 +86,11 @@
   font-size: 16px;
 }
 
+.calendar-day:hover {
+ background-color: rgb(99, 152, 252);;
+  color: black;
+}
+
 .calendar-day,
 .calendar-empty-day {
   height: 40px;
@@ -65,12 +104,17 @@
 
 .calendar-empty-day {
   color: #9ca3af;
+
 }
 
 .calendar-day-past {
   color: #9ca3af;
   background-color: #f3f4f6;
   cursor: not-allowed;
+}
+
+.calendar-day-past:hover {
+  background-color: #f3f4f6;
 }
 
 .calendar-day-selectable {

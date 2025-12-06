@@ -16,11 +16,11 @@
       "id": "1c08",
       "nombre": "Agustina",
       "apellido": "Altieri",
-      "telefono": "2983000000",
+      "telefono": "2983001000",
       "email": "agus@gmail.com",
       "password": "1234abcd",
       "confirmPassword": "1234abcd",
-      "profesion": "Plomeros",
+      "profesion": "dentista",
       "rangoPrecio": "0-499",
       "role": "profesional"
     },
@@ -61,49 +61,112 @@
       "role": "cliente"
     },
     {
-      "id": "4fbb",
-      "nombre": "Braian",
-      "apellido": "Caviggia",
-      "telefono": "1234123444",
-      "email": "bra@gmail.com",
-      "password": "1234asdf",
-      "confirmPassword": "1234asdf",
-      "profesion": "Nutricionista",
-      "rangoPrecio": "0-800",
+      "id": "a1e5",
+      "nombre": "Maria",
+      "apellido": "Perez",
+      "telefono": "2984657896",
+      "email": "mg@gmail.com",
+      "password": "3333zzzz",
+      "confirmPassword": "3333zzzz",
+      "profesion": "psicologia",
+      "rangoPrecio": "1000-1999",
+      "role": "profesional"
+    },
+    {
+      "id": "856c",
+      "nombre": "Agustina",
+      "apellido": "Ramirez",
+      "telefono": "4587254789",
+      "email": "ar@gmail.com",
+      "password": "9999ssss",
+      "confirmPassword": "9999ssss",
+      "profesion": "kinesiologia",
+      "rangoPrecio": "500-999",
+      "role": "profesional"
+    },
+    {
+      "id": "ea62",
+      "nombre": "Lautaro ",
+      "apellido": "Fernández",
+      "telefono": "2485323232",
+      "email": "lf@gmail.com",
+      "password": "5555zzzz",
+      "confirmPassword": "5555zzzz",
+      "profesion": "nutricionista",
+      "rangoPrecio": "2000+",
+      "role": "profesional"
+    },
+    {
+      "id": "1a3a",
+      "nombre": "Camila ",
+      "apellido": "Pereyra",
+      "telefono": "2984326885",
+      "email": "cp@gmail.com",
+      "password": "4444mmmm",
+      "confirmPassword": "4444mmmm",
+      "profesion": "dentista",
+      "rangoPrecio": "2000+",
+      "role": "profesional"
+    },
+    {
+      "id": "d4d3",
+      "nombre": "Mario",
+      "apellido": "Gomez",
+      "telefono": "2547635478",
+      "email": "mgg@gmail.com",
+      "password": "0000xxxx",
+      "confirmPassword": "0000xxxx",
+      "profesion": "peluqueria",
+      "rangoPrecio": "500-999",
+      "role": "profesional"
+    },
+    {
+      "id": "f378",
+      "nombre": "Florencia",
+      "apellido": "Alvarez",
+      "telefono": "2365478962",
+      "email": "faa@gmail.com",
+      "password": "1234qqqq",
+      "confirmPassword": "1234qqqq",
+      "profesion": "tatuadores",
+      "rangoPrecio": "0-499",
+      "role": "profesional"
+    },
+    {
+      "id": "9dbe",
+      "nombre": "Ignacio",
+      "apellido": "Rodriguez",
+      "telefono": "2983123458",
+      "email": "ir@gmail.com",
+      "password": "0000qqqq",
+      "confirmPassword": "0000qqqq",
+      "profesion": "plomeros",
+      "rangoPrecio": "2000+",
+      "role": "profesional"
+    },
+    {
+      "id": "8592",
+      "nombre": "Pedro",
+      "apellido": "Flores",
+      "telefono": "1157896547",
+      "email": "pf@gmail.com",
+      "password": "9999oooo",
+      "confirmPassword": "9999oooo",
+      "profesion": "albañiles",
+      "rangoPrecio": "1000-1999",
       "role": "profesional"
     }
   ],
   "turnos": [
     {
-      "id": "1dd7",
+      "id": "d953",
       "profesionalId": "1c08",
-      "clienteId": "c881",
-      "nombre": "Rafa",
-      "apellido": "Ruggeri",
-      "fecha": "2025-12-09T03:00:00.000Z",
-      "horario": "16:00",
-      "estado": "confirmado"
-    },
-    
-    {
-      "id": "951c",
-      "profesionalId": "1c08",
-      "clienteId": "bcd3",
-      "nombre": "Juan",
-      "apellido": "Perez",
-      "fecha": "2025-12-06T03:00:00.000Z",
-      "horario": "18:00",
-      "estado": "confirmado"
-    },
-    {
-      "id": "0caf",
-      "profesionalId": "1c08",
-      "clienteId": "c881",
-      "nombre": "Rafa",
-      "apellido": "Ruggeri",
-      "fecha": "2025-12-12T03:00:00.000Z",
-      "horario": "12:00",
-      "estado": "rechazado"
+      "clienteId": "8cce",
+      "nombre": "Vivi",
+      "apellido": "Blasco",
+      "fecha": "2027-10-27T03:00:00.000Z",
+      "horario": "14:00",
+      "estado": "pendiente"
     }
   ]
 }

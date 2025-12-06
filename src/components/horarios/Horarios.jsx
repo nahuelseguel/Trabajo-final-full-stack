@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from "react-router-dom";
 import './Horarios.css'
+import Calendario from '../calendario/Calendario';
 
 const formatHour = (h) => `${h < 10 ? "0" : ""}${h}:00`;
 
@@ -8,6 +9,7 @@ const Horarios = ({ selectedDate, onTimeSelect }) => {
   const navigate = useNavigate();
   const [selectedTime, setSelectedTime] = useState(null);
   const usuario = JSON.parse(localStorage.getItem("usuario"));
+
   const location = useLocation()
   const {profesionalId} = location.state
 
@@ -29,6 +31,7 @@ const Horarios = ({ selectedDate, onTimeSelect }) => {
       body: JSON.stringify(turno)
     })
   }
+ main
 
   const arrHoras = [];
   for (let h = 8; h <= 20; h++) arrHoras.push(h);
@@ -37,7 +40,9 @@ const Horarios = ({ selectedDate, onTimeSelect }) => {
     const timeStr = formatHour(hour);
     setSelectedTime(timeStr);
     onTimeSelect(timeStr);
+
     addDb(timeStr)
+
     navigate("/confirmacion");
   };
 
@@ -59,6 +64,6 @@ const Horarios = ({ selectedDate, onTimeSelect }) => {
       </div>
     </div>
   );
-};
+}
 
 export default Horarios;

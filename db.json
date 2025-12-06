@@ -20,7 +20,7 @@
       "email": "agus@gmail.com",
       "password": "1234abcd",
       "confirmPassword": "1234abcd",
-      "profesion": "Fotografo",
+      "profesion": "Plomeros",
       "rangoPrecio": "0-499",
       "role": "profesional"
     },
@@ -59,6 +59,51 @@
       "profesion": "",
       "rangoPrecio": "",
       "role": "cliente"
+    },
+    {
+      "id": "4fbb",
+      "nombre": "Braian",
+      "apellido": "Caviggia",
+      "telefono": "1234123444",
+      "email": "bra@gmail.com",
+      "password": "1234asdf",
+      "confirmPassword": "1234asdf",
+      "profesion": "Nutricionista",
+      "rangoPrecio": "0-800",
+      "role": "profesional"
+    }
+  ],
+  "turnos": [
+    {
+      "id": "1dd7",
+      "profesionalId": "1c08",
+      "clienteId": "c881",
+      "nombre": "Rafa",
+      "apellido": "Ruggeri",
+      "fecha": "2025-12-09T03:00:00.000Z",
+      "horario": "16:00",
+      "estado": "confirmado"
+    },
+    
+    {
+      "id": "951c",
+      "profesionalId": "1c08",
+      "clienteId": "bcd3",
+      "nombre": "Juan",
+      "apellido": "Perez",
+      "fecha": "2025-12-06T03:00:00.000Z",
+      "horario": "18:00",
+      "estado": "confirmado"
+    },
+    {
+      "id": "0caf",
+      "profesionalId": "1c08",
+      "clienteId": "c881",
+      "nombre": "Rafa",
+      "apellido": "Ruggeri",
+      "fecha": "2025-12-12T03:00:00.000Z",
+      "horario": "12:00",
+      "estado": "rechazado"
     }
   ]
 }

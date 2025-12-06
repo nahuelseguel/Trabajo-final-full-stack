@@ -72,6 +72,41 @@ body {
   color: black;
 }
 
+.contenedor-turnos {
+  text-align: center;
+  margin: 30px;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 1px 5px rgb(175, 175, 175);
+}
+
+ul {
+  text-decoration: none;
+  list-style-type: none;
+  margin-top: 10px;
+}
+
+li {
+  font-size: 17px;
+}
+
+.btn-vaciar {
+  width: 300px;
+  height: 37px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0px 1px 3px rgb(255, 255, 255);
+  background-color: rgb(255, 0, 0);
+  color: rgba(255, 255, 255, 1);
+  cursor: pointer;
+  transition: 0.3s;
+  margin: 20px;
+}
+
+.btn-vaciar:hover {
+  background-color: rgb(252, 99, 99);
+}
+
 /*BOTON CERRAR SESION*/
 .btn-logout {
   position: absolute;
@@ -79,6 +114,10 @@ body {
   right: 20px; /* separación desde la derecha */
   display: flex;
   align-items: center;
+}
+
+.btn-logout-responsive {
+  display: none;
 }
 
 /*DISEÑO RESPONSIVE*/
@@ -98,6 +137,14 @@ body {
 
   .contenedor-buscador button {
     display: none;
+  }
+
+  .btn-logout {
+    display: none;
+  }
+
+  .btn-logout-responsive {
+    display: block;
   }
 }
 

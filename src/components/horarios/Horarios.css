@@ -1,8 +1,37 @@
+.contenedor-horarios {
+  justify-content: center;
+  display: flex;
+}
+
+.time-selector-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  height: 85vh;
+  width: 90vw;
+  margin-top: 30px;
+  box-shadow: 0px 5px 3px rgb(110, 110, 110);
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.header-mensaje {
+  font-size: 21px;
+  background-color: rgba(0, 89, 255, 1);
+  padding: 7px;
+  color: white;
+}
+
+.mensaje-seleccionar {
+  margin-top: 20px;
+}
+
 .time-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); 
+  grid-template-columns: repeat(3, 1fr);
   gap: 10px;
   padding: 10px;
+  margin-top: 10px;
 }
 
 .time-button {

@@ -6,6 +6,7 @@ import AgendaDiaria from "./AgendaDiaria";
 import TarjetaCancelaciones from "./TarjetaCancelaciones";
 import TarjetaTurnosRechazados from "./TarjetaTurnosRechazados";
 import "./PanelProfesional.css"
+import Logout from "../Logout";
 
 const PanelProfesional = () => {
   // Obtengo el profesional del localstorage
@@ -88,10 +89,17 @@ const PanelProfesional = () => {
     setSolicitudesTurnos(prev => [...prev, { ...turno, estado: "pendiente" }]);
   };
 
-  return (
+  return (    
+<>
     <div className="panel-profesional">
-      {/* <Header /> */}
+
+      <div className="contenedor-cerrar-sesion">
+        <Logout></Logout>
+      </div>
+     
+      
       <div className="contenido-panel">
+        
         <TarjetaSolicitudesTurnos 
           solicitudes={solicitudesTurnos}
           onAceptar={manejarAceptar}
@@ -111,7 +119,9 @@ const PanelProfesional = () => {
         />
       </div>
     </div>
+    </>
   );
+
 };
 
 export default PanelProfesional;

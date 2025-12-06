@@ -9,7 +9,7 @@ const Confirmacion = ({ finalSelection }) => {
 
   return (
     <div className="confirm-container">
-      <h2>Cita pendiente</h2>
+      <h2>Turno pendiente</h2>
       <p>Fecha: {finalSelection.date.toLocaleDateString()}</p>
       <p>Hora: {finalSelection.time}</p>
 

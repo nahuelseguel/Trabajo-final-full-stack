@@ -96,7 +96,9 @@ const Horarios = ({ selectedDate, onTimeSelect }) => {
 
   return (
     <div className='contenedor-horarios'>
+ 
       <div className="time-selector-container">
+             <button onClick={() => navigate(-1)} className='btn-volver'>← Volver</button>
 
         <h3 className='header-mensaje'>Estas pidiendo un turno para el {selectedDate.toLocaleDateString()}</h3>
 

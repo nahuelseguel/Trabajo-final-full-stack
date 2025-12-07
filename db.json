@@ -167,6 +167,83 @@
       "fecha": "2027-10-27T03:00:00.000Z",
       "horario": "14:00",
       "estado": "pendiente"
+    },
+    {
+      "id": "8dba",
+      "profesionalId": "a1e5",
+      "clienteId": "fb73",
+      "nombre": "a",
+      "apellido": "a",
+      "fecha": "2025-12-08",
+      "horario": "08:00",
+      "estado": "confirmado",
+      "mensaje": ""
+    },
+    {
+      "id": "d641",
+      "profesionalId": "1a3a",
+      "clienteId": "fb73",
+      "nombre": "a",
+      "apellido": "a",
+      "fecha": "2025-12-10",
+      "horario": "12:00",
+      "estado": "confirmado",
+      "mensaje": "Consulta"
+    },
+    {
+      "id": "9bfb",
+      "profesionalId": "d4d3",
+      "clienteId": "1a3a",
+      "nombre": "Camila ",
+      "apellido": "Pereyra",
+      "fecha": "2025-12-14",
+      "horario": "14:00",
+      "estado": "confirmado",
+      "mensaje": ""
+    },
+    {
+      "id": "c144",
+      "profesionalId": "9dbe",
+      "clienteId": "1a3a",
+      "nombre": "Camila ",
+      "apellido": "Pereyra",
+      "fecha": "2025-12-10",
+      "horario": "13:00",
+      "estado": "pendiente",
+      "mensaje": ""
+    },
+    {
+      "id": "4a64",
+      "profesionalId": "d4d3",
+      "clienteId": "d4d3",
+      "nombre": "Mario",
+      "apellido": "Gomez",
+      "fecha": "2025-12-17",
+      "horario": "14:00",
+      "estado": "confirmado",
+      "mensaje": "Tintura"
+    },
+    {
+      "id": "76da",
+      "profesionalId": "d4d3",
+      "clienteId": "bcd3",
+      "nombre": "Juan",
+      "apellido": "Perez",
+      "fecha": "2025-12-17",
+      "horario": "14:00",
+      "estado": "pendiente",
+      "mensaje": ""
+    },
+    {
+      "id": "644e",
+      "profesionalId": "d4d3",
+      "clienteId": "c881",
+      "nombre": "Rafa",
+      "apellido": "Ruggeri",
+      "fecha": "2025-12-17",
+      "horario": "14:00",
+      "estado": "pendiente",
+      "mensaje": "Corte"
     }
   ]
 }

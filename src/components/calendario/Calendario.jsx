@@ -53,7 +53,9 @@ const Calendario = ({ onDateSelect }) => {
 
   return (
     <div className='contenedor-calendar'>
+      
       <div className="calendar-container">
+        <button onClick={() => navigate(-1)} className='btn-volver'>← Volver</button>
         <div className="calendar-header">
           <button onClick={() => setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 1))}>
             &lt;

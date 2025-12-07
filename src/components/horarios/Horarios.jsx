@@ -17,6 +17,22 @@ const Horarios = ({ selectedDate, onTimeSelect }) => {
   const [selectedTime, setSelectedTime] = useState(null);
   const usuario = JSON.parse(localStorage.getItem("usuario"));
 
+  //prueba chat
+  //un estado para lo que escribe el usuario y otro para vaciar el input
+  const [chat, setChat] = useState("")
+  const [mensaje, setMensaje] = useState("")
+
+  const handleChange = (e) => {
+    setChat(e.target.value)
+  }
+
+  //el mensaje esta en "chat", lo seteo a "mensaje"para luego el chat dejarlo vacio y que se limpie el input
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setMensaje(chat)
+    setChat("")
+  }
+
 
   const location = useLocation()
   const { profesionalId } = location.state
@@ -31,14 +47,14 @@ const Horarios = ({ selectedDate, onTimeSelect }) => {
       apellido: usuario.apellido,
       fecha: formatDate(selectedDate), //uso la funcion que modifica
       horario: timeStr,
-      estado: "pendiente"
+      estado: "pendiente",
+      mensaje: mensaje //mensaje del input que se va a la db
     }
     await fetch("http://localhost:4000/turnos", {
       method: "POST",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify(turno)
     })
-
   }
 
   const arrHoras = [];
@@ -56,16 +72,16 @@ const Horarios = ({ selectedDate, onTimeSelect }) => {
     //si hay coincidencias, envia una alerta y no se envia a la db
     if (turnoVerificado.length > 0) {
       Swal.fire({
-                      title: 'Ya solicitaste un turno para esta fecha',
-                      icon: 'error',
-                      // evita que se cierre al hacer click fuera del cartel
-                      allowOutsideClick: false,
-                      // Colores personalizados de la alerta
-                      confirmButtonColor: 'rgba(0, 89, 255, 1)',
-                      denyButtonColor: '#b0b0b0',
-                      background: '#ffffff',
-                      color: '#333',
-                  });
+        title: 'Ya solicitaste un turno para esta fecha',
+        icon: 'error',
+        // evita que se cierre al hacer click fuera del cartel
+        allowOutsideClick: false,
+        // Colores personalizados de la alerta
+        confirmButtonColor: 'rgba(0, 89, 255, 1)',
+        denyButtonColor: '#b0b0b0',
+        background: '#ffffff',
+        color: '#333',
+      });
       return
     }
 
@@ -73,6 +89,7 @@ const Horarios = ({ selectedDate, onTimeSelect }) => {
     onTimeSelect(timeStr);
     addDb(timeStr)
     navigate("/confirmacion");
+
   };
 
 
@@ -80,7 +97,22 @@ const Horarios = ({ selectedDate, onTimeSelect }) => {
   return (
     <div className='contenedor-horarios'>
       <div className="time-selector-container">
+
         <h3 className='header-mensaje'>Estas pidiendo un turno para el {selectedDate.toLocaleDateString()}</h3>
+
+        <h3>Envia un motivo de tu turno y luego selecciona un horario</h3>
+        <div className='contenedor-input'>
+          <form onSubmit={handleSubmit}>
+            <input className="input-motivo" type="text"
+              onChange={handleChange}
+              placeholder='Descripcion sobre el motivo del turno...'
+              value={chat}
+            />
+            <button className='btn-enviar' type='submit'>Enviar motivo</button>
+          </form>
+
+        </div>
+
         <h3 className='mensaje-seleccionar'>Selecciona un horario</h3>
 
         <div className="time-grid">
@@ -92,9 +124,14 @@ const Horarios = ({ selectedDate, onTimeSelect }) => {
             >
               {formatHour(h)}
             </button>
+
           ))}
+
         </div>
+
       </div>
+
+
     </div>
   );
 }

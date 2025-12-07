@@ -4,16 +4,15 @@ import "./pantallaProfesional.css"
 import { useParams } from "react-router-dom"
 import { Link } from 'react-router-dom'
 
-//LOS PROFESIONALES LOS TENGO QUE RECORRER DEL JSON SERVER. (actualmente muestro profesionales harcodeados en un json)
-
 export const PantallaProfesionales = () => {
 
-  //hooks que permite leer el valor de la url dinamica (clave profesion - archivo profesiones.js)
+  //hooks que permite leer el valor de la url dinamica
   const { profesion } = useParams();
 
-  /*  CODIGO PARA TRAER LOS DATOS DEL SERVER JSON*/
+  //estado para guardar todas las personas registradas en la db
   const [personas, setPersonas] = useState([])
 
+  //traigo las personas de la db y la seteo al estado
   let traerUsuarios = async () => {
     const response = await fetch("http://localhost:4000/usuarios");
     const personas = await response.json();
@@ -26,10 +25,10 @@ export const PantallaProfesionales = () => {
 
 
   //creo una constante en donde:
-  //filtro: dentro del array donde estan las personas(array del archivo personas.js) la profesion
-  //e igualo con los que coincidan con nombre, que es el valor que obtiene de la url dinamica
+  //filtro la db donde estan las personas su profesion
+  //y comparo con los que coincidan con la profesion, que es el valor que obtiene de la url dinamica
   //por lo tanto, guarda la profesiones que coincida en filtrados.
-  //por ultimo mapeo filtrados para mostrar las cards
+  //por ultimo mapeo filtrados para mostrar las cads
   const filtrados = personas.filter((p) => p.profesion?.toLowerCase() === profesion.toLowerCase());
 
   return (
@@ -39,19 +38,17 @@ export const PantallaProfesionales = () => {
         <p>Profesionales • {profesion} </p>
       </div>
 
+      {/*cree el componente cardProfesional con props: nombre,precio,id y estas las obtengo de la db(filtrados)                           imagen esta predefinida en el componente cardProfesional*/}
       <div className='contenedor-card-personas'>
         {filtrados.map((p) => (
           <CardProfesional
             id={p.id}
-            imagen={p.imagen}  
             nombre={p.nombre}
             precio={p.rangoPrecio}
           />
         ))}
       </div>
-
       <div>
-
       </div>
     </div>
   )

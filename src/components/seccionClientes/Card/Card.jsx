@@ -2,7 +2,8 @@ import React from 'react'
 import "./card.css"
 import { Link } from 'react-router-dom'
 
-//falta como props la etiqueta de enlace para cada profesion.
+
+//componente card que se renderiza en pantalla cliente con una imagen y profesion especifica 
 export const Card = ({imagen, profesion}) => {
   return (
     //url dinamica - segun lo que elija el usuario redirecciona ahi

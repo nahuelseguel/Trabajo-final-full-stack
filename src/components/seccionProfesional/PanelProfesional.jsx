@@ -38,7 +38,7 @@ const PanelProfesional = () => {
   }, [idProfesional]);
 
   // Función para actualizar estado en JSON Server
-  //modifica solamente la clave "estado" al valor que tenga nuevoEstado
+  //modifica solamente la clave "estado" al valor que tenga nuevoEstado y en la url filtro el turno por id para cambiar solo el turno que corresponda
   const actualizarTurno = async (id, nuevoEstado) => {
     await fetch(`http://localhost:4000/turnos/${id}`, {
       method: "PATCH",
@@ -46,12 +46,13 @@ const PanelProfesional = () => {
       body: JSON.stringify({ estado: nuevoEstado })
     });
 
-    //elimina de la lista el turno a mover. (crea un nuevo array sin el id que sacamos)
+    //elimina de la lista el turno al que quiero actualizarle el estado. (crea un nuevo array sin el id que sacamos)
     const actualizarEstados = (turnos) => turnos.filter(t => t.id !== id);
     //guardo el turno que estoy moviendo
     const turno = solicitudesTurnos.find(t => t.id === id);
 
-    //uso el parametro de linea 40 y segun el estado seteo el turno que guarde anteriormente con find()
+    //uso el parametro del actualizarTurno y segun el estado seteo el turno que guarde anteriormente con find()
+    //con prev dejo los turnos que hay, y aparte agrego el nuevo turno cambiando su estado
     if (nuevoEstado === "confirmado") {
       setCitasDiarias(prev => [...prev, { ...turno, estado: "confirmado" }]);
       setSolicitudesTurnos(prev => actualizarEstados(prev, "confirmado"));

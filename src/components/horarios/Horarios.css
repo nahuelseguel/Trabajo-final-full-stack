@@ -20,6 +20,7 @@
   background-color: rgba(0, 89, 255, 1);
   padding: 7px;
   color: white;
+  margin-bottom: 15px;
 }
 
 .mensaje-seleccionar {
@@ -32,6 +33,38 @@
   gap: 10px;
   padding: 10px;
   margin-top: 10px;
+}
+
+.contenedor-input {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+  align-items: center;
+}
+
+.input-motivo {
+  margin-right: 10px;
+  width: 700px;
+  height: 30px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0px 1px 3px rgb(110, 110, 110);
+}
+
+.btn-enviar {
+  width: 100px;
+  height: 37px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0px 1px 3px rgb(255, 255, 255);
+  background-color: rgba(0, 89, 255, 1);
+  color: rgba(255, 255, 255, 1);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-enviar:hover {
+  background-color: rgb(99, 152, 252);
 }
 
 .time-button {

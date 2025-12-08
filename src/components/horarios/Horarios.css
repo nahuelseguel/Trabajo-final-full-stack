@@ -88,3 +88,20 @@
 .time-button:enabled:hover {
   background-color: #b6f3b1;
 }
+
+@media (max-width: 1000px) { 
+  .input-motivo {
+    width: 500px;
+
+  }
+}
+
+/*CELULAR*/
+
+@media (max-width: 700px) {
+  .input-motivo  {
+    width: 250px;
+    margin-bottom: 10px;
+    
+  }
+}

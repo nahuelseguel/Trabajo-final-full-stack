@@ -85,9 +85,16 @@ const SignUp = () => {
       return;
     }
 
-    try {
-      const payload = { ...form, role };
-      const res = await fetch('http://localhost:4000/usuarios', {
+     try {
+      const payload = {
+        nombre: form.nombre,
+        apellido: form.apellido,
+        telefono: form.telefono,
+        email: form.email,
+        password: form.password,
+        rol: role
+      }; // acá camnbio solo role por rol: role para que coicida con el BE
+      const res = await fetch('http://localhost:3000/user', { // Debería ser la URL de tu backend para crear usuarios
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),

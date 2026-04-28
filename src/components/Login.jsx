@@ -77,7 +77,7 @@ const Login = () => {
 
             // Si el usuario elige la opción de registrarse navega a signup
             if (result.isConfirmed) {
-                navegar('/');
+                navegar('/signup'); // QUEDÓ MAL ESTA RUTA EN EL TP ENVIADO REDIRIGE A LOGIN EN VEZ DE SIGNUP
                 return;
             }
         }

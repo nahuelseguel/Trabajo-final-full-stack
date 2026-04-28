@@ -8,7 +8,7 @@ export const Turnos = () => {
     const [turnosRechazados, setTurnosRechazados] = useState([]);
 
     const cliente = JSON.parse(localStorage.getItem("usuario"));
-    const idCliente = ciente?.id
+    const idCliente = ciente?.id // OJO QUEDÓ MAL ESCRITO CLIENTE
 
     const [turnos, setTurnos] = useState([])
 

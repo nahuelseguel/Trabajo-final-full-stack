@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Boton from "./botonRoles/Boton";
-import {PantallaCliente} from "./seccionClientes/PantallaCliente";
+import { PantallaCliente } from "./seccionClientes/PantallaCliente";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
@@ -38,26 +38,60 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault(); // Evita que la pagina se recargue
 
-        if (!validarPassword(datos.password || "")) {
-            setError("El email o la contraseña son incorrectos.");
-            return;
-        }
 
         setError(""); // OK
-        console.log("Registro exitoso:", datos);
 
         // Función para consultar el si el usuario existe en el backend
-        const response = await fetch(
-            `http://localhost:4000/usuarios?email=${encodeURIComponent(datos.email)}&password=${datos.password}`
-        );
+        const response = await fetch("http://localhost:3000/user/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                email: datos.email,
+                password: datos.password,
+            }),
+        });
         const data = await response.json();
 
+        console.log("Registro exitoso:", datos);
         //si no coinciden los datos de email y password, no sigue.
-        if (data.length === 0) {
+        // if (data.length === 0) {
 
-            // ALERTA DE USUARIO NO ENCONTRADO HECHA SWEETALERT2
-            const result = await Swal.fire({
-                title: 'Datos inválidos',
+        //     // ALERTA DE USUARIO NO ENCONTRADO HECHA SWEETALERT2
+        //     const result = await Swal.fire({
+        //         title: 'Datos inválidos',
+        //         text: 'El email o la contraseña son incorrectos.',
+        //         icon: 'error',
+        //         showDenyButton: true,
+        //         confirmButtonText: 'Registrarse',
+        //         denyButtonText: 'Intentar de nuevo',
+        //         // Muestra footer que dirige a olvidaste tu contraseña. Se usa etiqueta html <a> por que SweetAlert no funciona con Link de react-router
+        //         footer: '<a href="/forgotpassword" style="color: black; text-decoration: underline;">¿Olvidaste tu contraseña?</a>',
+        //         // evita que se cierre al hacer click fuera del cartel
+        //         allowOutsideClick: false,
+
+        //         // Colores personalizados de la alerta
+        //         confirmButtonColor: 'rgba(0, 89, 255, 1)',
+        //         denyButtonColor: '#b0b0b0',
+        //         background: '#ffffff',
+        //         color: '#333',
+        //     });
+
+        //     // Si el usuario elige la opción de registrarse navega a signup
+        //     if (result.isConfirmed) {
+        //         navegar('/signup'); // QUEDÓ MAL ESTA RUTA EN EL TP ENVIADO REDIRIGE A LOGIN EN VEZ DE SIGNUP
+        //         return;
+        //     }
+        // }
+
+        // //significa el primer y unico usuario que coincidio en la busqueda
+        // const usuarioLogueado = data[0];
+
+
+        if (!response.ok) {
+            await Swal.fire({
+               title: 'Datos inválidos',
                 text: 'El email o la contraseña son incorrectos.',
                 icon: 'error',
                 showDenyButton: true,
@@ -74,22 +108,16 @@ const Login = () => {
                 background: '#ffffff',
                 color: '#333',
             });
-
-            // Si el usuario elige la opción de registrarse navega a signup
-            if (result.isConfirmed) {
-                navegar('/signup'); // QUEDÓ MAL ESTA RUTA EN EL TP ENVIADO REDIRIGE A LOGIN EN VEZ DE SIGNUP
-                return;
-            }
+            return;
         }
 
-        //significa el primer y unico usuario que coincidio en la busqueda
-        const usuarioLogueado = data[0];
+        const usuarioLogueado = data;
 
         // guardo el usuario en el localStorage(usuario logueado es el usuario que coincidio con el ingreso)
         localStorage.setItem("usuario", JSON.stringify(usuarioLogueado));
 
         // Asegura que la selección del boton coincida con el rol del usuario que se está logueando
-        if (usuarioLogueado.role !== role) {
+        if (usuarioLogueado.rol !== role) {
             // Si el rol no coincide lanza una alerta de SweetAlert2
             await Swal.fire({
                 title: 'Rol incorrecto',
@@ -105,9 +133,9 @@ const Login = () => {
         }
 
         // Navegación según el rol del usuario sea profesional o cliente
-        if (usuarioLogueado.role === "profesional") {
+        if (usuarioLogueado.rol === "profesional") {
             navegar("/panelprofesional"); // Ruta de ejemplo para profesional. HAY QUE CAMBIARLAS LUEGO
-        } else if (usuarioLogueado.role === "cliente") {
+        } else if (usuarioLogueado.rol === "cliente") {
             navegar("/clientes"); // Ruta de ejemplo para cliente. HAY QUE CAMBIARLAS LUEGO
         }
     };
@@ -138,7 +166,7 @@ const Login = () => {
 
                         {/* Botón Cliente */}
                         <Boton
-                        
+
                             active={role === "cliente"}
                             onClick={() => setRole("cliente")}
                             icono={<img src="./src/assets/person.svg" alt="Icono cliente" className="btn-icon" />}

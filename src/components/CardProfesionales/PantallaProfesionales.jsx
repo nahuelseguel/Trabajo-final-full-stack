@@ -14,8 +14,9 @@ export const PantallaProfesionales = () => {
 
   //traigo las personas de la db y la seteo al estado
   let traerUsuarios = async () => {
-    const response = await fetch("http://localhost:4000/usuarios");
-    const personas = await response.json();
+    const response = await fetch(
+      `http://localhost:3000/professional-profile?profesion=${profesion}`
+    ); const personas = await response.json();
     setPersonas(personas)
   }
 
@@ -29,7 +30,7 @@ export const PantallaProfesionales = () => {
   //y comparo con los que coincidan con la profesion, que es el valor que obtiene de la url dinamica
   //por lo tanto, guarda la profesiones que coincida en filtrados.
   //por ultimo mapeo filtrados para mostrar las cads
-  const filtrados = personas.filter((p) => p.profesion?.toLowerCase() === profesion.toLowerCase());
+  // const filtrados = personas.filter((p) => p.profesion?.toLowerCase() === profesion.toLowerCase());
 
   return (
     <div className='contenedor-pantalla-profesionales'>
@@ -40,11 +41,12 @@ export const PantallaProfesionales = () => {
 
       {/*cree el componente cardProfesional con props: nombre,precio,id y estas las obtengo de la db(filtrados)                           imagen esta predefinida en el componente cardProfesional*/}
       <div className='contenedor-card-personas'>
-        {filtrados.map((p) => (
+        {personas.map((p) => (
           <CardProfesional
+            key={p.id}
             id={p.id}
-            nombre={p.nombre}
-            precio={p.rangoPrecio}
+            nombre={`${p.user?.nombre} ${p.user?.apellido}`}
+            precio={`${p.precio_min} - $${p.precio_max}`}
           />
         ))}
       </div>

@@ -22,16 +22,13 @@ const PanelProfesional = () => {
   // traigo los turnos de la base de datos
   useEffect(() => {
     const traerTurnos = async () => {
-      const res = await fetch("http://localhost:4000/turnos");
+      const res = await fetch(`http://localhost:3000/professional-profile/user/${idProfesional}/turnos`);
       const data = await res.json();
 
-      // comparo el id del profesional con el id del turno para que coincida y se le muestre a la persona que corresponde
-      const misTurnos = data.filter(turno => turno.profesionalId === idProfesional);
-
       // separo los turnos segun el estado del turno
-      setSolicitudesTurnos(misTurnos.filter(t => t.estado === "pendiente"));
-      setCitasDiarias(misTurnos.filter(t => t.estado === "confirmado"));
-      setTurnosRechazados(misTurnos.filter(t => t.estado === "rechazado"));
+      setSolicitudesTurnos(data.pendiente);
+      setCitasDiarias(data.confirmado);
+      setTurnosRechazados(data.cancelado);
     };
 
     traerTurnos();
@@ -40,7 +37,7 @@ const PanelProfesional = () => {
   // Función para actualizar estado en JSON Server
   //modifica solamente la clave "estado" al valor que tenga nuevoEstado y en la url filtro el turno por id para cambiar solo el turno que corresponda
   const actualizarTurno = async (id, nuevoEstado) => {
-    await fetch(`http://localhost:4000/turnos/${id}`, {
+    await fetch(`http://localhost:3000/turnos/${id}/estado`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ estado: nuevoEstado })
@@ -78,7 +75,7 @@ const PanelProfesional = () => {
     if (!turno) return;
 
     //actualizo el estado a pendiente nuevamente
-    await fetch(`http://localhost:4000/turnos/${id}`, {
+    await fetch(`http://localhost:3000/turnos/${id}/estado`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ estado: "pendiente" })

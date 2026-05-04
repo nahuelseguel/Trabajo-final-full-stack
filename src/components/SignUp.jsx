@@ -12,7 +12,8 @@ const SignUp = () => {
     password: "",
     confirmPassword: "",
     profesion: "",
-    rangoPrecio: "",
+    precio_min: "",
+    precio_max: "",
   });
 
   // rol: "cliente" o "profesional"
@@ -65,7 +66,7 @@ const SignUp = () => {
       return;
     }
 
-    if (role === "profesional" && !form.rangoPrecio) {
+    if (role === "profesional" && (!form.precio_min || !form.precio_max)) {
       setError("Seleccioná el rango de precio en el que trabajás.");
       return;
     }
@@ -85,15 +86,27 @@ const SignUp = () => {
       return;
     }
 
-     try {
+    try {
       const payload = {
         nombre: form.nombre,
         apellido: form.apellido,
         telefono: form.telefono,
         email: form.email,
         password: form.password,
-        rol: role
+        rol: role,
+        profesion: role === "profesional" ? form.profesion : undefined,
+        precio_min: role === "profesional" ? form.precio_min : undefined,
+        precio_max: role === "profesional" ? form.precio_max : undefined,
       }; // acá camnbio solo role por rol: role para que coicida con el BE
+
+
+      // Si el rol es profesional, agrego profesión
+      // if (role === "profesional") {
+      //   payload.profesion = form.profesion;
+      //   payload.precioMin = form.precioMin;
+      //   payload.precioMax = form.precioMax;
+      // }
+
       const res = await fetch('http://localhost:3000/user', { // Debería ser la URL de tu backend para crear usuarios
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -118,7 +131,8 @@ const SignUp = () => {
         password: "",
         confirmPassword: "",
         profesion: "",
-        rangoPrecio: "",
+        precioMin: "",
+        precioMax: "",
       });
     } catch (err) {
       console.error(err);
@@ -238,20 +252,28 @@ const SignUp = () => {
               <label className="field-label field-label--spaced">Rango de precio</label>
               <div className="input-wrap select-wrap">
                 <img src="./src/assets/wallet.svg" alt="rango precio" className="input-icon" />
-                <select
-                  className="input-field select-field"
-                  name="rangoPrecio"
-                  value={form.rangoPrecio}
+                <input
+                  className="input-field"
+                  type="number"
+                  placeholder="precio minimo"
+                  name="precio_min"
+                  value={form.precio_min}
                   onChange={handleChange}
-                  required={role === "profesional"}
-                  aria-label="Rango de precio"
-                >
-                  <option value="">Seleccioná un rango de precios</option>
-                  <option value="0-499">Hasta $499</option>
-                  <option value="500-999">$500 - $999</option>
-                  <option value="1000-1999">$1.000 - $1.999</option>
-                  <option value="2000+">Más de $2.000</option>
-                </select>
+                  required
+                />
+              </div>
+
+              <div className="input-wrap select-wrap">
+                <img src="./src/assets/wallet.svg" alt="rango precio" className="input-icon" />
+                <input
+                  className="input-field"
+                  type="number"
+                  placeholder="precio maximo"
+                  name="precio_max"
+                  value={form.precio_max}
+                  onChange={handleChange}
+                  required
+                />
               </div>
 
             </>

@@ -166,7 +166,7 @@
       "apellido": "Blasco",
       "fecha": "2027-10-27T03:00:00.000Z",
       "horario": "14:00",
-      "estado": "pendiente"
+      "estado": "confirmado"
     },
     {
       "id": "8dba",
@@ -244,6 +244,17 @@
       "horario": "14:00",
       "estado": "pendiente",
       "mensaje": "Corte"
+    },
+    {
+      "id": "9d4a",
+      "profesionalId": "1c08",
+      "clienteId": "fb73",
+      "nombre": "a",
+      "apellido": "a",
+      "fecha": "2025-12-16",
+      "horario": "11:00",
+      "estado": "confirmado",
+      "mensaje": "Consulta"
     }
   ]
 }

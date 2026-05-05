@@ -16,6 +16,22 @@
   margin-top: 30px;
 }
 
+/*Mensaje que aparece cuando no hay profesionales disponibles*/
+.mensaje-vacio {
+  border-radius: 15px;
+  width: 300px;
+  height: 300px;
+  box-shadow: 0px 0px 3px rgb(143, 143, 143);
+  margin: 15px 15px;
+  text-align: center;
+  transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 10px;
+}
+
 /*Barra en donde esta "volver" + profesion + la profesion especifica*/
 .contenedor-volver-atras {
   display: flex;
@@ -76,5 +92,14 @@
 
   .contenedor-volver-atras {
     width: 80%;
+  }
+}
+
+/* responsive */
+@media (max-width: 700px) {
+  .mensaje-vacio {
+    width: 80%;
+    font-size: 14px;
+    padding: 15px 20px;
   }
 }

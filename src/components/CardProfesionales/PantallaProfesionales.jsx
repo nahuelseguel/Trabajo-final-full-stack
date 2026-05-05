@@ -39,16 +39,26 @@ export const PantallaProfesionales = () => {
         <p>Profesionales • {profesion} </p>
       </div>
 
-      {/*cree el componente cardProfesional con props: nombre,precio,id y estas las obtengo de la db(filtrados)                           imagen esta predefinida en el componente cardProfesional*/}
+      {/*cree el componente cardProfesional con props: nombre,precio,id y estas las obtengo de la db(filtrados), 
+      imagen esta predefinida en el componente cardProfesional*/}
+
       <div className='contenedor-card-personas'>
-        {personas.map((p) => (
-          <CardProfesional
-            key={p.id}
-            id={p.id}
-            nombre={`${p.user?.nombre} ${p.user?.apellido}`}
-            precio={`${p.precio_min} - $${p.precio_max}`}
-          />
-        ))}
+      
+        {/* Renderizado condicional se muestra cartel si no hay profesionales de un rubro */}
+        {personas.length === 0 ? (
+          <p className="mensaje-vacio">
+            No se han encontrado profesionales en este rubro
+          </p>
+        ) : (
+          personas.map((p) => (
+            <CardProfesional
+              key={p.id}
+              id={p.id}
+              nombre={`${p.user?.nombre} ${p.user?.apellido}`}
+              precio={`$${p.precio_min} - $${p.precio_max}`}
+            />
+          ))
+        )}
       </div>
       <div>
       </div>

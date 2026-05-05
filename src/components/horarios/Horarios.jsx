@@ -40,17 +40,15 @@ const Horarios = ({ selectedDate, onTimeSelect }) => {
   if (!selectedDate) navigate("/"); // Seguridad simple
 
   const addDb = async (timeStr) => {
+
     const turno = {
-      profesionalId,
-      clienteId: usuario.id,
-      nombre: usuario.nombre,
-      apellido: usuario.apellido,
-      fecha: formatDate(selectedDate), //uso la funcion que modifica
-      horario: timeStr,
-      estado: "pendiente",
-      mensaje: mensaje //mensaje del input que se va a la db
-    }
-    await fetch("http://localhost:4000/turnos", {
+    profesionalId: Number(profesionalId),
+    clienteId: Number(usuario.id),
+    fecha_hora: `${formatDate(selectedDate)}T${timeStr}:00`,
+    mensaje: mensaje
+  
+  }
+    await fetch("http://localhost:3000/turn", {
       method: "POST",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify(turno)

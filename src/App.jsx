@@ -22,8 +22,8 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/calendario" element={<Calendario onDateSelect={(date) => setSelectedDate(date)} />} />
-        <Route path="/horarios" element={<Horarios selectedDate={selectedDate} onTimeSelect={(time) => setSelectedTime(time)} />} />
+        <Route path="/calendario/:id" element={<Calendario onDateSelect={(date) => setSelectedDate(date)} />} />
+        <Route path="/horarios/:id" element={<Horarios selectedDate={selectedDate} onTimeSelect={(time) => setSelectedTime(time)} />} />
         <Route path="/confirmacion" element={<Confirmacion finalSelection={{ date: selectedDate, time: selectedTime }} />} />
         <Route path="/turnos" element={<Turnos></Turnos>}></Route>
         <Route path="/clientes" element={<PantallaCliente></PantallaCliente>}></Route>

@@ -6,10 +6,10 @@ const ElementoSolicitudTurno = ({ solicitud, onAceptar, onRechazar, onCancelar }
       <div className="info-cliente">
         <div className="avatar">{solicitud.avatar}</div>
         <div className="detalles-cliente">
-          <div className="nombre-cliente">{solicitud.nombre} {solicitud.apellido}</div>
+          <div className="nombre-cliente">{solicitud.cliente.nombre} {solicitud.cliente.apellido}</div>
           <div className="detalles-cita">
-            <span className="chip-tiempo">{solicitud.fecha} • {solicitud.horario}</span>
-            <span className="chip-tiempo">Motivo: {solicitud.mensaje}</span>
+            <span className="chip-tiempo">{solicitud.fecha_hora}</span>
+            <span className="chip-tiempo">Motivo: {solicitud.motivo}</span>
             
           </div>
         </div>

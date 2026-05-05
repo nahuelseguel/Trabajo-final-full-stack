@@ -24,11 +24,12 @@ const PanelProfesional = () => {
     const traerTurnos = async () => {
       const res = await fetch(`http://localhost:3000/professional-profile/user/${idProfesional}/turnos`);
       const data = await res.json();
+      console.log(data)
 
       // separo los turnos segun el estado del turno
-      setSolicitudesTurnos(data.pendiente);
-      setCitasDiarias(data.confirmado);
-      setTurnosRechazados(data.cancelado);
+      setSolicitudesTurnos(data.pendientes);
+      setCitasDiarias(data.confirmados);
+      setTurnosRechazados(data.rechazados);
     };
 
     traerTurnos();
@@ -37,7 +38,7 @@ const PanelProfesional = () => {
   // Función para actualizar estado en JSON Server
   //modifica solamente la clave "estado" al valor que tenga nuevoEstado y en la url filtro el turno por id para cambiar solo el turno que corresponda
   const actualizarTurno = async (id, nuevoEstado) => {
-    await fetch(`http://localhost:3000/turnos/${id}/estado`, {
+    await fetch(`http://localhost:3000/professional-profile/turnos/${id}/estado`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ estado: nuevoEstado })
@@ -75,7 +76,7 @@ const PanelProfesional = () => {
     if (!turno) return;
 
     //actualizo el estado a pendiente nuevamente
-    await fetch(`http://localhost:3000/turnos/${id}/estado`, {
+    await fetch(`http://localhost:3000/professional-profile/turnos/${id}/estado`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ estado: "pendiente" })

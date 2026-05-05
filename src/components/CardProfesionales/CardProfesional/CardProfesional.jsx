@@ -15,9 +15,7 @@ export const CardProfesional = ({ nombre, precio, id}) => {
 
                 <p className='rango-precio'>Rango del presupuesto: ${precio}</p>
                 {/*state lleva los datos a la url de to y se recibe con location */}
-                <Link className='link' to="/calendario" state={{nombre, precio, id}}><button className='btn-turno'>Pedir turno</button></Link>
-
-
+                <Link className='link' to={`/calendario/${id}`}><button className='btn-turno'>Pedir turno</button></Link>
             </div>
         </div>
     )

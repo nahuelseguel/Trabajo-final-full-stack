@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-
+import { useParams } from 'react-router-dom';
 import { useNavigate, useLocation } from 'react-router-dom';
 import './calendario.css'
 
 
 const Calendario = ({ onDateSelect }) => {
   const navigate = useNavigate();
-  const location = useLocation();
-  const { id: profesionalId } = location.state;
+  const {id} = useParams();
+  const profesionalId = Number(id);
   const [currentDate, setCurrentDate] = useState(new Date());
 
   const getDaysInMonth = (year, month) => new Date(year, month + 1, 0).getDate();
@@ -15,7 +15,7 @@ const Calendario = ({ onDateSelect }) => {
 
   const handleSelect = (date) => {
     onDateSelect(date);
-    navigate("/horarios", { state: { profesionalId } });
+    navigate(`/horarios/${profesionalId}`);
   };
 
 

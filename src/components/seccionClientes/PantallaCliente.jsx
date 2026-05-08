@@ -16,32 +16,19 @@ export const PantallaCliente = () => {
     const idCliente = cliente?.id
 
 
-//traigo los turnos de la db, los guardo en "res" y luego lo guardo en "data" convertido a json
-//guardo en "mis turnos" los turnos que coincidan al cliente (uso el id de la db de turno con el id que obtengo del localStorage del cliente logueado)
 
-//traigo los usuarios logueados
-//recorro y busco que el id del usuario sea al mismo al que figura en el turno (profesionaId)
-//en el return lo que hago es dejar los datos del turno y agregarle un nuevo objeto que es el profesional que corresponda
-//por lo tanto turnosProfesionl contiene datos del turno y datos del profesional
+    //traigo los turnos pedidos por el cliente logueado de la base de datos y los guardo en los estados dependiendo del estado del turno
     useEffect(() => {
         const traerTurnos = async () => {
-            const res = await fetch("http://localhost:4000/turnos");
-            const data = await res.json();
-
-            const misTurnos = data.filter(turno => turno.clienteId === idCliente);
-
-            const usuarios = await fetch("http://localhost:4000/usuarios");
-            const listaUsuarios = await usuarios.json();
-
-            const turnosProfesional = misTurnos.map(t => {
-                const profesional = listaUsuarios.find(u => u.id === t.profesionalId)
-                return { ...t, profesional };
-            })
+            const res = await fetch(`http://localhost:3000/turn/user/${idCliente}`);
+            console.log(res)
+            const misTurnos = await res.json()
+            console.log(misTurnos)
 
 //lleno los useState dependiendo el estado del turno
-            setSolicitudesTurnos(turnosProfesional.filter(t => t.estado === "pendiente"))
-            setTurnoAceptado(turnosProfesional.filter(t => t.estado === "confirmado"))
-            setTurnosRechazados(turnosProfesional.filter(t => t.estado === "rechazado"))
+            setSolicitudesTurnos(misTurnos.filter(t => t.estado === "pendiente"))
+            setTurnoAceptado(misTurnos.filter(t => t.estado === "confirmado"))
+            setTurnosRechazados(misTurnos.filter(t => t.estado === "rechazado"))
         };
 
         traerTurnos();
@@ -89,19 +76,19 @@ export const PantallaCliente = () => {
 
                     {solicitudesTurnos.map(s => (
                         <ul>
-                            <li>⚠️Turno pedido a {s.profesional?.nombre} {s.profesional?.apellido} para el dia {s.fecha} a las {s.horario} se encuentra {s.estado}</li>
+                            <li>⚠️Turno pedido a {s.profesional?.nombre} {s.profesional?.apellido} para el dia {s.fecha_hora} se encuentra {s.estado}</li>
                         </ul>
                     ))}
 
                     {turnoAceptado.map(s => (
                         <ul>
-                            <li>✅Turno pedido a {s.profesional?.nombre} {s.profesional?.apellido} para el dia {s.fecha} a las {s.horario} fue {s.estado}. Ya te podes comunicar con el al {s.profesional?.telefono}</li>
+                            <li>✅Turno pedido a {s.profesional?.nombre} {s.profesional?.apellido} para el dia {s.fecha_hora} fue {s.estado}. Ya te podes comunicar con el al {s.profesional?.telefono}</li>
                         </ul>
                     ))}
 
                     {turnosRechazados.map(s => (
                         <ul>
-                            <li>❌Turno pedido a {s.profesional?.nombre} {s.profesional?.apellido} para el dia {s.fecha} a las {s.horario} fue rechazado {s.estado}</li>
+                            <li>❌Turno pedido a {s.profesional?.nombre} {s.profesional?.apellido} para el dia {s.fecha_hora} fue rechazado {s.estado}</li>
                         </ul>
                     ))}
                 </div>

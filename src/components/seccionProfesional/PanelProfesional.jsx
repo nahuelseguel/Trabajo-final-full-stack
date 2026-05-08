@@ -35,10 +35,12 @@ const PanelProfesional = () => {
     traerTurnos();
   }, [idProfesional]);
 
-  // Función para actualizar estado en JSON Server
+  console.log(solicitudesTurnos);
+
+  // Función para actualizar estado en DB
   //modifica solamente la clave "estado" al valor que tenga nuevoEstado y en la url filtro el turno por id para cambiar solo el turno que corresponda
   const actualizarTurno = async (id, nuevoEstado) => {
-    await fetch(`http://localhost:3000/professional-profile/turnos/${id}/estado`, {
+    await fetch(`http://localhost:3000/turn/turnos/${id}/estado`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ estado: nuevoEstado })
@@ -76,7 +78,7 @@ const PanelProfesional = () => {
     if (!turno) return;
 
     //actualizo el estado a pendiente nuevamente
-    await fetch(`http://localhost:3000/professional-profile/turnos/${id}/estado`, {
+    await fetch(`http://localhost:3000/turn/turnos/${id}/estado`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ estado: "pendiente" })

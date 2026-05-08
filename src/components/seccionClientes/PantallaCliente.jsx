@@ -11,7 +11,7 @@ export const PantallaCliente = () => {
     const [turnoAceptado, setTurnoAceptado] = useState([]);
     const [turnosRechazados, setTurnosRechazados] = useState([]);
 
-    //guardo el id del cliente logueado
+    //guardo el id del cliente logueado ||| MSA ADELANTE IMPLEMENTARLO CON TOKEN 
     const cliente = JSON.parse(localStorage.getItem("usuario"));
     const idCliente = cliente?.id
 

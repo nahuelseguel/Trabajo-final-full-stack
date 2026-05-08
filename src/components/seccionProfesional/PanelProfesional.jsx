@@ -19,10 +19,10 @@ const PanelProfesional = () => {
   const [citasDiarias, setCitasDiarias] = useState([]);
   const [turnosRechazados, setTurnosRechazados] = useState([]);
 
-  // traigo los turnos de la base de datos
+  // traigo los turnos de la base de datos de Turn
   useEffect(() => {
     const traerTurnos = async () => {
-      const res = await fetch(`http://localhost:3000/professional-profile/user/${idProfesional}/turnos`);
+      const res = await fetch(`http://localhost:3000/turn/professional/${idProfesional}`);
       const data = await res.json();
       console.log(data)
 

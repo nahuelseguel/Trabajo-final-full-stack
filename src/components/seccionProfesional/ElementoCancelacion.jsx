@@ -2,13 +2,14 @@ import React from 'react';
 
 const ElementoCancelacion = ({ cancelacion, onReprogramar }) => {
   return (
+    console.log(cancelacion),
     <div className="item-cancelacion">
       <div className="info-cliente">
         <div className="avatar">{cancelacion.avatar}</div>
         <div className="detalles-cliente">
           <div className="nombre-cliente">{cancelacion.nombre} {cancelacion.apellido}</div>
           <div className="detalles-cita">
-            {cancelacion.fecha} • {cancelacion.horario}
+            {cancelacion.fecha_hora}
           </div>
         </div>
       </div>

@@ -13,7 +13,7 @@ const AgendaDiaria = ({ citasDiarias }) => {
         ) : (
           <div className="lista-agenda">
             {citasDiarias.map(cita => (
-              <ElementoAgenda 
+              <ElementoAgenda
                 key={cita.id}
                 cita={cita}
               />
@@ -26,13 +26,17 @@ const AgendaDiaria = ({ citasDiarias }) => {
 };
 
 const ElementoAgenda = ({ cita }) => {
+  console.log('Cita:', cita);
   return (
     <div className="item-agenda">
       <div className="tiempo-agenda">
+        {cita.fecha_hora}
       </div>
       <div className="detalles-agenda">
-        <div className="cliente-agenda">{cita.nombre} {cita.apellido}</div>
-         {cita.fecha} {cita.horario}
+        <div className="cliente-agenda">
+         <p> Cliente: {cita.cliente.nombre} {cita.cliente.apellido}</p>
+          <p>Motivo: {cita.motivo}</p>
+        </div>
       </div>
       <div className="estado-agenda">
         <span className={`etiqueta-estado ${cita.estado}`}>

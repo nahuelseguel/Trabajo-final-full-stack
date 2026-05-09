@@ -6,12 +6,12 @@ const ElementoTurnoRechazado = ({ turno, onRestaurar }) => {
       <div className="info-cliente">
         <div className="avatar">{turno.avatar}</div>
         <div className="detalles-cliente">
-          <div className="nombre-cliente">{turno.nombre} {turno.apellido}</div>
+          <div className="nombre-cliente">{turno.cliente.nombre} {turno.cliente.apellido}</div>
           <div className="detalles-cita">
-            {turno.fecha} • {turno.horario}
+            {turno.fecha_hora}
           </div>
           <div className="fecha-rechazo">
-            Rechazado: {turno.fechaRechazo}
+            {turno.fechaRechazo}
           </div>
         </div>
       </div>

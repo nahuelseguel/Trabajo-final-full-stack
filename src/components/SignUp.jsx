@@ -113,10 +113,15 @@ const SignUp = () => {
         body: JSON.stringify(payload),
       });
 
-      if (!res.ok) {
-        const text = await res.text();
-        throw new Error(`Error servidor: ${res.status} ${text}`);
-      }
+     if (!res.ok) {
+  const errorData = await res.json();
+
+  const mensaje = Array.isArray(errorData.message)
+    ? errorData.message[0]
+    : errorData.message;
+
+  throw new Error(mensaje || "Error al registrar usuario");
+}
 
       const saved = await res.json();
       console.log("Registro guardado:", saved);
@@ -135,9 +140,9 @@ const SignUp = () => {
         precioMax: "",
       });
     } catch (err) {
-      console.error(err);
-      setError("No se pudo guardar el registro. Revisa la conexión al servidor.");
-    }
+  console.error(err);
+  setError(err.message);
+}
 
   };
 

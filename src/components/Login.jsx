@@ -42,7 +42,7 @@ const Login = () => {
         setError(""); // OK
 
         // Función para consultar el si el usuario existe en el backend
-        const response = await fetch("http://localhost:3000/user/login", {
+        const response = await fetch("http://localhost:3000/auth/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -54,7 +54,9 @@ const Login = () => {
         });
         const data = await response.json();
 
-        console.log("Registro exitoso:", datos);
+        console.log("Registro exitoso:", {
+            email: datos.email,
+        });
         //si no coinciden los datos de email y password, no sigue.
         // if (data.length === 0) {
 
@@ -91,7 +93,7 @@ const Login = () => {
 
         if (!response.ok) {
             await Swal.fire({
-               title: 'Datos inválidos',
+                title: 'Datos inválidos',
                 text: 'El email o la contraseña son incorrectos.',
                 icon: 'error',
                 showDenyButton: true,
@@ -113,11 +115,20 @@ const Login = () => {
 
         const usuarioLogueado = data;
 
-        // guardo el usuario en el localStorage(usuario logueado es el usuario que coincidio con el ingreso)
-        localStorage.setItem("usuario", JSON.stringify(usuarioLogueado));
+        // GUardo JWT
+        localStorage.setItem(
+            "token",
+            usuarioLogueado.access_token
+        );
+
+        // Guardo usuario
+        localStorage.setItem(
+            "usuario",
+            JSON.stringify(usuarioLogueado.user)
+        );
 
         // Asegura que la selección del boton coincida con el rol del usuario que se está logueando
-        if (usuarioLogueado.rol !== role) {
+        if (usuarioLogueado.user.rol !== role) {
             // Si el rol no coincide lanza una alerta de SweetAlert2
             await Swal.fire({
                 title: 'Rol incorrecto',
@@ -133,9 +144,9 @@ const Login = () => {
         }
 
         // Navegación según el rol del usuario sea profesional o cliente
-        if (usuarioLogueado.rol === "profesional") {
+        if (usuarioLogueado.user.rol === "profesional") {
             navegar("/panelprofesional"); // Ruta de ejemplo para profesional. HAY QUE CAMBIARLAS LUEGO
-        } else if (usuarioLogueado.rol === "cliente") {
+        } else if (usuarioLogueado.user.rol === "cliente") {
             navegar("/clientes"); // Ruta de ejemplo para cliente. HAY QUE CAMBIARLAS LUEGO
         }
     };

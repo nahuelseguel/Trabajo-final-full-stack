@@ -12,6 +12,7 @@ import AuthLayout from '../src/layouts/AuthLayout.jsx';
 import "../src/Style.css";
 import { useState } from "react";
 import PanelProfesional from "./components/seccionProfesional/PanelProfesional.jsx";
+import { MiPerfil } from "./components/seccionMiPerfil/MiPerfil.jsx";
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Route path="/clientes" element={<PantallaCliente></PantallaCliente>}></Route>
         <Route path="/profesion/:profesion" element={<PantallaProfesionales />}></Route>
         <Route path="/panelprofesional" element={<PanelProfesional></PanelProfesional>}></Route>
+        <Route path="/miPerfil/:id" element={<MiPerfil></MiPerfil>}></Route>
 
         <Route element={<AuthLayout />}>
           <Route path="/" element={<Login />} />

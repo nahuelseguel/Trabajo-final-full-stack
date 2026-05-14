@@ -93,14 +93,30 @@ li {
 /*BOTON CERRAR SESION*/
 .btn-logout {
   position: absolute;
-  top: 6px; /* separación desde arriba */
-  right: 20px; /* separación desde la derecha */
+  right: 70px; /* separación desde la derecha */
   display: flex;
   align-items: center;
+  margin-top: 35px;
+  gap: 20px;
+
 }
 
 .btn-logout-responsive {
   display: none;
+}
+
+.btn-logout .botones {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: 10px;
+  transition: 0.4s;
+
+}
+
+.btn-logout .botones:hover {
+ transform: scale(1.1);
+
 }
 
 /*DISEÑO RESPONSIVE*/

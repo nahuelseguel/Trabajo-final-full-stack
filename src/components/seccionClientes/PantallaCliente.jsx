@@ -3,6 +3,7 @@ import { Card } from "./Card/Card.jsx"
 import profesiones from "./Card/profesiones.json"
 import "../seccionClientes/pantallaPrincipal.css"
 import Logout from '../Logout.jsx'
+import { Link } from 'react-router-dom'
 
 export const PantallaCliente = () => {
 
@@ -51,8 +52,12 @@ export const PantallaCliente = () => {
         <>
             <div className='contenedor-pantalla'>
 
+
+
                 <div className="btn-logout" >
-                    <Logout />
+                    {/* <Logout /> */}
+                    <Link to={`/`}><img className='botones' src='https://cdn.pixabay.com/photo/2016/03/31/14/48/off-1292831_640.png' alt="Cerrar sesion" /></Link>
+                    <Link to={`/miPerfil/${idCliente}`}><img className='botones' src='https://cdn-icons-png.flaticon.com/512/9187/9187604.png' alt="Mi Perfil" /></Link>
                 </div>
 
                 <div className="btn-logout-responsive" >

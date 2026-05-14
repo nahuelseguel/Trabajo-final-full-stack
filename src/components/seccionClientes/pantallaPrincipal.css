@@ -98,7 +98,6 @@ li {
   align-items: center;
   margin-top: 35px;
   gap: 20px;
-
 }
 
 .btn-logout-responsive {
@@ -117,6 +116,13 @@ li {
 .btn-logout .botones:hover {
  transform: scale(1.1);
 
+}
+
+.logo-icon-principal {
+  width: 40px;
+  position: absolute;
+  left: 70px;
+  margin-top: 35px;
 }
 
 /*DISEÑO RESPONSIVE*/

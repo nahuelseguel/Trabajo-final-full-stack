@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 
 export const PantallaCliente = () => {
 
-//estados para guardar los estados de los turnos
+    //estados para guardar los estados de los turnos
     const [solicitudesTurnos, setSolicitudesTurnos] = useState([]);
     const [turnoAceptado, setTurnoAceptado] = useState([]);
     const [turnosRechazados, setTurnosRechazados] = useState([]);
@@ -26,7 +26,7 @@ export const PantallaCliente = () => {
             const misTurnos = await res.json()
             console.log(misTurnos)
 
-//lleno los useState dependiendo el estado del turno
+            //lleno los useState dependiendo el estado del turno
             setSolicitudesTurnos(misTurnos.filter(t => t.estado === "pendiente"))
             setTurnoAceptado(misTurnos.filter(t => t.estado === "confirmado"))
             setTurnosRechazados(misTurnos.filter(t => t.estado === "rechazado"))
@@ -50,10 +50,15 @@ export const PantallaCliente = () => {
 
     return (
         <>
+            <div>
+                <img
+                    src="./src/assets/repeat.svg"
+                    alt="Logo Turn Market"
+                    className="logo-icon-principal"
+                />
+            </div>
+
             <div className='contenedor-pantalla'>
-
-
-
                 <div className="btn-logout" >
                     {/* <Logout /> */}
                     <Link to={`/`}><img className='botones' src='https://cdn.pixabay.com/photo/2016/03/31/14/48/off-1292831_640.png' alt="Cerrar sesion" /></Link>
@@ -64,6 +69,7 @@ export const PantallaCliente = () => {
                     <Logout />
                 </div>
                 <div className='contenedor-buscador'>
+
                     <input className='buscador-profesiones' onChange={handleChange} placeholder='Buscar una profesion...' type='text'></input>
                     <button>Buscar</button>
                 </div>
@@ -77,7 +83,7 @@ export const PantallaCliente = () => {
                 <div className='contenedor-turnos'>
                     <h2 className='texto-turnos'>Mis turnos</h2>
 
-                    
+
 
                     {solicitudesTurnos.map(s => (
                         <ul>

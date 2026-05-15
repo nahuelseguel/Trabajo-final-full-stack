@@ -3,10 +3,11 @@ import { Card } from "./Card/Card.jsx"
 import profesiones from "./Card/profesiones.json"
 import "../seccionClientes/pantallaPrincipal.css"
 import Logout from '../Logout.jsx'
+import { Link } from 'react-router-dom'
 
 export const PantallaCliente = () => {
 
-//estados para guardar los estados de los turnos
+    //estados para guardar los estados de los turnos
     const [solicitudesTurnos, setSolicitudesTurnos] = useState([]);
     const [turnoAceptado, setTurnoAceptado] = useState([]);
     const [turnosRechazados, setTurnosRechazados] = useState([]);
@@ -25,7 +26,7 @@ export const PantallaCliente = () => {
             const misTurnos = await res.json()
             console.log(misTurnos)
 
-//lleno los useState dependiendo el estado del turno
+            //lleno los useState dependiendo el estado del turno
             setSolicitudesTurnos(misTurnos.filter(t => t.estado === "pendiente"))
             setTurnoAceptado(misTurnos.filter(t => t.estado === "confirmado"))
             setTurnosRechazados(misTurnos.filter(t => t.estado === "rechazado"))
@@ -49,16 +50,26 @@ export const PantallaCliente = () => {
 
     return (
         <>
-            <div className='contenedor-pantalla'>
+            <div>
+                <img
+                    src="./src/assets/repeat.svg"
+                    alt="Logo Turn Market"
+                    className="logo-icon-principal"
+                />
+            </div>
 
+            <div className='contenedor-pantalla'>
                 <div className="btn-logout" >
-                    <Logout />
+                    {/* <Logout /> */}
+                    <Link to={`/`}><img className='botones' src='https://cdn.pixabay.com/photo/2016/03/31/14/48/off-1292831_640.png' alt="Cerrar sesion" /></Link>
+                    <Link to={`/miPerfil/${idCliente}`}><img className='botones' src='https://cdn-icons-png.flaticon.com/512/9187/9187604.png' alt="Mi Perfil" /></Link>
                 </div>
 
                 <div className="btn-logout-responsive" >
                     <Logout />
                 </div>
                 <div className='contenedor-buscador'>
+
                     <input className='buscador-profesiones' onChange={handleChange} placeholder='Buscar una profesion...' type='text'></input>
                     <button>Buscar</button>
                 </div>
@@ -72,7 +83,7 @@ export const PantallaCliente = () => {
                 <div className='contenedor-turnos'>
                     <h2 className='texto-turnos'>Mis turnos</h2>
 
-                    
+
 
                     {solicitudesTurnos.map(s => (
                         <ul>

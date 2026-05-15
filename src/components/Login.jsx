@@ -15,6 +15,9 @@ const Login = () => {
         password: ""
     });
 
+    // Estado para mostrar/ocultar contraseña
+    const [showPassword, setShowPassword] = useState(false);
+
     // Estado que controla si es Cliente o Profesional, inicia en Cliente
     const [role, setRole] = useState("cliente");
 
@@ -218,17 +221,39 @@ const Login = () => {
 
                     {/* Campo contraseña */}
                     <label className="field-label">Contraseña</label>
-                    <div className="input-wrap">
-                        {/* Icono candado */}
-                        <img src="./src/assets/lock.svg" alt="password" className="input-icon" />
+                    <div className="input-wrap password-wrap">
+
+                        {/*Icono candado*/}
+                        <img
+                            src="./src/assets/lock.svg"
+                            alt="password"
+                            className="input-icon"
+                        />
+
                         <input
                             className="input-field"
-                            type="password"
+                            type={showPassword ? "text" : "password"}
                             placeholder="Ingresa tu contraseña"
                             name="password"
                             value={datos.password || ""}
                             onChange={handleChange}
                         />
+
+                        <button
+                            type="button"
+                            className="toggle-password-btn"
+                            onClick={() => setShowPassword(!showPassword)}
+                        >
+                            <img
+                                src={
+                                    showPassword
+                                        ? "./src/assets/eye-slash.svg"
+                                        : "./src/assets/eye.svg"
+                                }
+                                alt="toggle password"
+                                className="toggle-password-icon"
+                            />
+                        </button>
                     </div>
 
                     {/* Mostrar error si existe (renderizado condicional) */}

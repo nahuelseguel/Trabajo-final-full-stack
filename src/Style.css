@@ -153,6 +153,26 @@
   border-radius: 12px;
 }
 
+.password-wrap {
+    position: relative;
+}
+
+.toggle-password-btn {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.toggle-password-icon {
+    width: 20px;
+    height: 20px;
+}
+
 .input-field {
   border: none;
   outline: none;

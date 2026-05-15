@@ -12,13 +12,27 @@ export const MiPerfil = () => {
   const idNum = Number(id)
   const [usuario, setUsuario] = useState(null) //estado para guardar la info del usuario que traigo del backend
   const [editar, setEditar] = useState(false) //estado para controlar si los campos del perfil estan habilitados para editar o no
+  const [eliminado, setEliminado] = useState(false) //estado para controlar si el perfil fue eliminado o no, para redirigir al usuario a la pantalla de registro/login
 
   //obtengo la info del usuario 
   const traerDatosUsuario = async () => {
-    const res = await fetch(`http://localhost:3000/user/${idNum}`)
-    const data = await res.json()
-    setUsuario(data)
-    console.log(data)
+    try {
+      const res = await fetch(`http://localhost:3000/user/${idNum}`)
+      if (!res.ok) {
+        setEliminado(true)
+        return
+      }
+      const data = await res.json()
+      if (!data || !data.id) {
+        setEliminado(true)
+        return
+      }
+      setUsuario(data)
+      console.log(data)
+    } catch (error) {
+      console.log(error)
+      setEliminado(true)
+    }
   }
 
 
@@ -42,11 +56,11 @@ export const MiPerfil = () => {
         cancelButtonText: 'No, cancelar cambios'
       })
 
-      if(!result.isConfirmed){ 
+      if (!result.isConfirmed) {
         setEditar(false)
         traerDatosUsuario() //si el usuario cancela la confirmacion, vuelvo a traer los datos del usuario para descartar los cambios realizados en los campos
         return
-      }                                   
+      }
 
       //envio la info actualizada del usuario al backend para que se guarde en la base de datos
       const res = await fetch(`http://localhost:3000/user/${idNum}`, {
@@ -93,13 +107,13 @@ export const MiPerfil = () => {
         method: 'DELETE'
       })
 
-      if ( res.ok ) {
+      if (res.ok) {
         Swal.fire(
           '¡Eliminado!',
           'Tu perfil ha sido eliminado.',
           'success',
-        ),
-         navigate('/') //redirecciono al login despues de eliminar el perfil
+        )
+        setEliminado(true) //marco el perfil como eliminado
       }
     } catch (error) {
       console.log(error)
@@ -110,7 +124,19 @@ export const MiPerfil = () => {
     traerDatosUsuario()
   }, [])
 
+  if (eliminado) {
+    return (
+      <div className='contenedor-perfil'>
+        <div className='contenedor-caja-perfil'>
+          <p>El perfil fue eliminado</p>
+              <Link className='link' to="/"> <button className='btn-volver'>← Volver a inicio</button></Link>
+        </div>
+      </div>
+    )
+  }
+
   if (!usuario) {
+
     return (
       <div className='contenedor-perfil'>
         <h1>Mi Perfil</h1>
@@ -214,9 +240,9 @@ export const MiPerfil = () => {
           >{editar ? 'Guardar cambios' : 'Actualizar perfil'}
           </button>
 
-          <button 
-          className='btn-eliminar'
-          onClick={eliminarPerfil}      
+          <button
+            className='btn-eliminar'
+            onClick={eliminarPerfil}
           >
             Eliminar perfil
           </button>

@@ -7,6 +7,8 @@ import TarjetaCancelaciones from "./TarjetaCancelaciones";
 import TarjetaTurnosRechazados from "./TarjetaTurnosRechazados";
 import "./PanelProfesional.css"
 import Logout from "../Logout";
+import { Link } from 'react-router-dom'
+
 
 const PanelProfesional = () => {
   // Obtengo el profesional del localstorage
@@ -95,7 +97,12 @@ const PanelProfesional = () => {
     <div className="panel-profesional">
 
       <div className="contenedor-cerrar-sesion">
-        <Logout></Logout>
+        {/* <Logout></Logout> */}
+        <div className="btn-logout" >
+                            {/* <Logout /> */}
+                            <Link to={`/`}><img className='botones' src='https://cdn.pixabay.com/photo/2016/03/31/14/48/off-1292831_640.png' alt="Cerrar sesion" /></Link>
+                            <Link to={`/miPerfil/${idProfesional}`}><img className='botones' src='https://cdn-icons-png.flaticon.com/512/9187/9187604.png' alt="Mi Perfil" /></Link>
+                        </div>
       </div>
      
       

@@ -152,7 +152,7 @@ export const MiPerfil = () => {
 
     <div className='contenedor-perfil'>
 
-      <Link className='link' to="/clientes"> <button className='btn-volver'>← Volver</button></Link>
+      <Link className='link'><button onClick={() => navigate(-1)} className='btn-volver'>← Volver</button></Link>
 
       <div className='contenedor-caja-perfil'>
 

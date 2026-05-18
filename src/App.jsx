@@ -13,6 +13,7 @@ import "../src/Style.css";
 import { useState } from "react";
 import PanelProfesional from "./components/seccionProfesional/PanelProfesional.jsx";
 import { MiPerfil } from "./components/seccionMiPerfil/MiPerfil.jsx";
+import { SeccionHistorial } from "./components/seccionHistorial/SeccionHistorial.jsx";
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
         <Route path="/profesion/:profesion" element={<PantallaProfesionales />}></Route>
         <Route path="/panelprofesional" element={<PanelProfesional></PanelProfesional>}></Route>
         <Route path="/miPerfil/:id" element={<MiPerfil></MiPerfil>}></Route>
+        <Route path="/historial/:id" element={<SeccionHistorial/>}></Route>
 
         <Route element={<AuthLayout />}>
           <Route path="/" element={<Login />} />

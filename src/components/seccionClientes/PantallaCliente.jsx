@@ -8,9 +8,9 @@ import { Link } from 'react-router-dom'
 export const PantallaCliente = () => {
 
     //estados para guardar los estados de los turnos
-    const [solicitudesTurnos, setSolicitudesTurnos] = useState([]);
-    const [turnoAceptado, setTurnoAceptado] = useState([]);
-    const [turnosRechazados, setTurnosRechazados] = useState([]);
+    // const [solicitudesTurnos, setSolicitudesTurnos] = useState([]);
+    // const [turnoAceptado, setTurnoAceptado] = useState([]);
+    // const [turnosRechazados, setTurnosRechazados] = useState([]);
 
     //guardo el id del cliente logueado ||| MSA ADELANTE IMPLEMENTARLO CON TOKEN 
     const cliente = JSON.parse(localStorage.getItem("usuario"));
@@ -19,21 +19,21 @@ export const PantallaCliente = () => {
 
 
     //traigo los turnos pedidos por el cliente logueado de la base de datos y los guardo en los estados dependiendo del estado del turno
-    useEffect(() => {
-        const traerTurnos = async () => {
-            const res = await fetch(`http://localhost:3000/turn/user/${idCliente}`);
-            console.log(res)
-            const misTurnos = await res.json()
-            console.log(misTurnos)
+    // useEffect(() => {
+    //     const traerTurnos = async () => {
+    //         const res = await fetch(`http://localhost:3000/turn/user/${idCliente}`);
+    //         console.log(res)
+    //         const misTurnos = await res.json()
+    //         console.log(misTurnos)
 
-            //lleno los useState dependiendo el estado del turno
-            setSolicitudesTurnos(misTurnos.filter(t => t.estado === "pendiente"))
-            setTurnoAceptado(misTurnos.filter(t => t.estado === "confirmado"))
-            setTurnosRechazados(misTurnos.filter(t => t.estado === "rechazado"))
-        };
+    //         //lleno los useState dependiendo el estado del turno
+    //         setSolicitudesTurnos(misTurnos.filter(t => t.estado === "pendiente"))
+    //         setTurnoAceptado(misTurnos.filter(t => t.estado === "confirmado"))
+    //         setTurnosRechazados(misTurnos.filter(t => t.estado === "rechazado"))
+    //     };
 
-        traerTurnos();
-    }, [idCliente]);
+    //     traerTurnos();
+    // }, [idCliente]);
 
 
     //estado para guardar lo que ingresa el usuario
@@ -80,7 +80,9 @@ export const PantallaCliente = () => {
                     ))}
                 </div>
 
-                <div className='contenedor-turnos'>
+                <Link to={`/historial/${idCliente}`}><button className='btn-historial'>Ver mi historial de turnos</button></Link>
+
+                {/* <div className='contenedor-turnos'>
                     <h2 className='texto-turnos'>Mis turnos</h2>
 
 
@@ -102,7 +104,7 @@ export const PantallaCliente = () => {
                             <li>❌Turno pedido a {s.profesional?.nombre} {s.profesional?.apellido} para el dia {s.fecha_hora} fue rechazado {s.estado}</li>
                         </ul>
                     ))}
-                </div>
+                </div> */}
             </div>
         </>
     )

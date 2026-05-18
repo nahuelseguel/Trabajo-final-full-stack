@@ -23,6 +23,10 @@ const SignUp = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
 
+  // Estado para mostrar/ocultar contraseña
+  const [showPassword, setShowPassword] = useState(false);
+
+
   // validación contraseña 8 caracteres, letras y números
   const validarPassword = (pass) => {
     const regex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
@@ -113,15 +117,15 @@ const SignUp = () => {
         body: JSON.stringify(payload),
       });
 
-     if (!res.ok) {
-  const errorData = await res.json();
+      if (!res.ok) {
+        const errorData = await res.json();
 
-  const mensaje = Array.isArray(errorData.message)
-    ? errorData.message[0]
-    : errorData.message;
+        const mensaje = Array.isArray(errorData.message)
+          ? errorData.message[0]
+          : errorData.message;
 
-  throw new Error(mensaje || "Error al registrar usuario");
-}
+        throw new Error(mensaje || "Error al registrar usuario");
+      }
 
       const saved = await res.json();
       console.log("Registro guardado:", saved);
@@ -140,9 +144,9 @@ const SignUp = () => {
         precioMax: "",
       });
     } catch (err) {
-  console.error(err);
-  setError(err.message);
-}
+      console.error(err);
+      setError(err.message);
+    }
 
   };
 
@@ -302,17 +306,32 @@ const SignUp = () => {
 
           {/* Contraseña */}
           <label className="field-label">Contraseña</label>
-          <div className="input-wrap">
+          <div className="input-wrap password-wrap">
             <img src="/src/assets/lock.svg" alt="password" className="input-icon" />
             <input
               className="input-field"
-              type="password"
+              type={showPassword ? "text" : "password"}
               placeholder="Ingresa tu contraseña"
               name="password"
               value={form.password}
               onChange={handleChange}
               required
             />
+            <button
+              type="button"
+              className="toggle-password-btn"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              <img
+                src={
+                  showPassword
+                    ? "./src/assets/eye-slash.svg"
+                    : "./src/assets/eye.svg"
+                }
+                alt="toggle password"
+                className="toggle-password-icon"
+              />
+            </button>
           </div>
 
           {/* Confirmar password */}
@@ -321,7 +340,7 @@ const SignUp = () => {
             <img src="/src/assets/lock.svg" alt="confirm" className="input-icon" />
             <input
               className="input-field"
-              type="password"
+              type={showPassword ? "text" : "password"}
               placeholder="Repite tu contraseña"
               name="confirmPassword"
               value={form.confirmPassword}

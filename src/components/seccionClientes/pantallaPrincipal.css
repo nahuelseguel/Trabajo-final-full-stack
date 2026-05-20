@@ -123,12 +123,12 @@ li {
 
 .logo-icon-principal {
   width: 44px;
-  height: auto;
+  /* height: auto;
   position: absolute;
   top: 18px;
   left: 20px;
   object-fit: contain;
-  z-index: 2;
+  z-index: 2; */
 }
 
 /*DISEÑO RESPONSIVE*/

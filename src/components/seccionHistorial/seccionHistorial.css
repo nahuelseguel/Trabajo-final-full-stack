@@ -58,7 +58,7 @@
 .contenedor-turnos {
     width: 100%;
     max-width: 900px;
-    margin: 0 auto 16px;
+    margin: 0 auto;
 }
 
 .contenedor-card-turno {
@@ -75,24 +75,12 @@
 }
 
 .contenedor-card-turno p {
-    margin: 0;
     color: #333;
     font-size: 1rem;
 }
 
-.contenedor-card-turno p:first-child {
-    font-weight: 700;
-    flex: 2 1 180px;
-}
-
-.contenedor-card-turno p:nth-child(2) {
-    flex: 1 1 150px;
-}
-
 .contenedor-card-turno p:nth-child(3) {
-    flex: 1 1 110px;
-    text-align: right;
-    text-transform: capitalize;
+        text-align: center;
 }
 
 #btn-volver-historial {
@@ -154,8 +142,10 @@
     }
 
     .contenedor-card-turno p:nth-child(3) {
-        text-align: left;
+        text-align: center;
     }
+
+    
 }
 
 @media (max-width: 480px) {
@@ -177,7 +167,9 @@
     }
 
     .contenedor-card-turno {
-        padding: 14px;
+       gap: 0;
+       padding: 0;
+       margin: 0;
     }
 
     .contenedor-card-turno p {

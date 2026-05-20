@@ -4,6 +4,7 @@ import profesiones from "./Card/profesiones.json"
 import "../seccionClientes/pantallaPrincipal.css"
 import Logout from '../Logout.jsx'
 import { Link } from 'react-router-dom'
+import { Sidebar } from '../sidebar/Sidebar.jsx'
 
 export const PantallaCliente = () => {
 
@@ -50,13 +51,9 @@ export const PantallaCliente = () => {
 
     return (
         <>
-            <div>
-                <img
-                    src="./src/assets/repeat.svg"
-                    alt="Logo Turn Market"
-                    className="logo-icon-principal"
-                />
-            </div>
+            
+
+            <Sidebar/>
 
             <div className='contenedor-pantalla'>
                 <div className="btn-logout" >
@@ -80,7 +77,6 @@ export const PantallaCliente = () => {
                     ))}
                 </div>
 
-                <Link to={`/historial/${idCliente}`}><button className='btn-historial'>Ver mi historial de turnos</button></Link>
 
                 {/* <div className='contenedor-turnos'>
                     <h2 className='texto-turnos'>Mis turnos</h2>

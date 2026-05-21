@@ -66,13 +66,31 @@ export const SeccionHistorial = () => {
             ) :
                 (solicitudesTurnos.map((turno) => (
                     <div className='contenedor-turnos'>
-                        <div className='contenedor-card-turno'>
+                        <div className='contenedor-card-turno' id='turno-pendiente'>
                             <p>{turno.profesional.nombre} {turno.profesional.apellido}</p>
                             <p>{turno.fecha_hora}</p>
                             <p>{turno.estado}</p>
                         </div>
                     </div>
-                )))}
+                )))} 
+                {turnosRechazados.map((turno) => (
+                    <div className='contenedor-turnos'>
+                        <div className='contenedor-card-turno' id='turno-rechazado'>
+                            <p>{turno.profesional.nombre} {turno.profesional.apellido}</p>
+                            <p>{turno.fecha_hora}</p>
+                            <p>{turno.estado}</p>
+                        </div>
+                    </div>
+                ))}
+                {turnoAceptado.map((turno) => (
+                    <div className='contenedor-turnos'>
+                        <div className='contenedor-card-turno' id='turno-aceptado'>
+                            <p>{turno.profesional.nombre} {turno.profesional.apellido}</p>
+                            <p>{turno.fecha_hora}</p>
+                            <p>{turno.estado}</p>
+                        </div>
+                    </div>
+                ))}
 
 
 
